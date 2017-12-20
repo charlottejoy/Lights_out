@@ -3,30 +3,36 @@
   position: absolute;
   top: 5vh;
   left: 5vw;
-  height: 30vw;
-  width: 30vw;
+  height: 45vw;
+  width: 45vw;
 }
 
 .row{
   position: absolute;
   left: 5%;
   width: 90%;
-  height: 30%;
+  height: 15%;
   display: flex;
 }
 .r1{
   top: 5%;
 }
 .r2{
-  top: 35%;
+  top: 20%;
 }
 .r3{
+  top: 35%;
+}
+.r4{
+ top: 50% 
+}
+.r5{
   top: 65%;
 }
 .square{
   border: 2px black solid;
   height: 100%;
-  width: 33%;
+  width: 20%;
 }
 
 .on{
