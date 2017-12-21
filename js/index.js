@@ -1,4 +1,5 @@
 var size= 5;
+var game=1;
 
 function toggleAround(clicked){
   
@@ -30,11 +31,38 @@ if(numClick%size!=0 && numClick+1<=size*size){//if not at end of row
   
    var allOff= $("div").hasClass( "on" );
   if(allOff==false){
-    alert("winner");
-    //option to play again vs next game
+  chooseNext();
+    
   }
 }
 
+function chooseNext(){
+  
+   if( confirm(" You won! Play next game?")){
+   game++;
+     drawGame(game);
+   document.getElementById("game-name").innerText="Game " + game;
+    // document.getElementById("least-moves").innerText= 
+    }
+  
+    else{
+     document.getElementById("game-name").innerText= "Choose a game to continue.";
+    }
+}
+
+
+function drawGame(game){
+ $(".square").removeClass("on");            
+  switch (game){
+  case (2):  $("#1").addClass("on");
+      
+      break;
+    case(3):
+  $("#2").addClass("on");  
+      break;
+  }
+
+};
 
 $(".square").click(function(){
  var clickedSquare=  $(this).attr('id'); //onClick grab id and run through toffle function
@@ -42,18 +70,35 @@ $(".square").click(function(){
                    });
 
 
+$("p").click(function(){
+game++;
+//alert(game);
+drawGame(game);
+             });
+
+//choose level
+$(".game-level").click(function(){
+  var gameString=  String($(this).attr('id'));
+  var gameLevelId= gameString.slice(0, -1);
+ var gameLevelChoice= Number(gameLevelId);
+  drawGame(gameLevelChoice);
+})
+
+//drawGame();
+
 /*important
 
 winable game levels added
-function game1(){
-  //create 1st pattern which will be set before any JS runs
+
 }
 
 */
-/*NICE TO HAVES
-- customizable size/ easy, medium, hard sizes || how this will work with winable games?
+/*Missing NICE TO HAVES
+//
+ nicer to find a way to attach least moves and other info to a game 
+ rather than this per choice. 
+ if this, nice maybe to show how much left, but will need to go into negative.
 - count moves against least number of moves required->points
-- 
 */
 
 
