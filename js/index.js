@@ -87,9 +87,11 @@ function chooseNext() {
 
 //make game depending on number
 function drawGame(game) {
-  $(".square").removeClass("on"); // turn all off in case
+  $(".square").removeClass("on tutorial"); // turn all off in case
+  document.getElementById("13").innerText= " ";
   switch (game) {
     case 0: $("#8,#12, #13, #14, #18 ").addClass("on"); //turn em on
+     document.getElementById("13").innerText= "Press here.";
       break;
     case 1:
       $("#8,#12, #13, #14, #18 ").addClass("on"); 
@@ -200,7 +202,7 @@ winable game levels added
 */
 /*Missing NICE TO HAVES
 //
-Add animation on click and toggle
+***Add animation on click and toggle
 Add shadows, make pretty
 DONE- A random game. Push random numbers to array random number less than or equal to 25 long
 
