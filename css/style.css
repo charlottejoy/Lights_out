@@ -6,7 +6,20 @@
   height: 45vw;
   width: 45vw;
 }
-
+@keyframes toggle-animation{
+  0%{
+    box-shadow: none;
+  }
+  50%{
+     box-shadow: .25vw .25vw 3vw .25vw inset, -.25vw -.25vw 3vw .25vw inset;
+  }
+  100%{
+     box-shadow: .25vw .25vw .25vw white inset, -.25vw -.25vw .25vw white inset;
+  }
+}
+.pressed{
+    box-shadow: .25vw .25vw 3vw .25vw inset, -.25vw -.25vw 3vw .25vw inset;
+}
 .row{
   position: absolute;
   left: 5%;
@@ -30,11 +43,40 @@
   top: 65%;
 }
 .square{
-  border: 2px black solid;
+  /*border: 2px black solid;*/
   height: 100%;
   width: 20%;
+  border-radius: 10%;
+   box-shadow: .25vw .25vw .25vw white inset, -.25vw -.25vw .25vw white inset;
 }
 
 .on{
   background: pink;
+}
+.game-choices{
+  position: absolute;
+  top: 80%;
+  left: 10%;
+  height: 20%;
+  width: 80%;
+}
+.game-numbers{}
+.game-level{}
+#help{}
+#help-text{
+  display:none;
+  background: pink;
+  padding: 10%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80%;
+  height: 80%;
+  
+  
+}
+
+#close{
+  text-align:right;
+  font-weight: bold;
 }
