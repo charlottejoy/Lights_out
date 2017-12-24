@@ -1,8 +1,10 @@
 var size = 5;
 var game = 0;
 var totalGames= 12;
+//make next a function (won) if won->show different confirm message
 
-
+//begin
+ drawGame(0);
 //create random game
 function randomGame(){
 
@@ -91,43 +93,43 @@ function drawGame(game) {
   document.getElementById("13").innerText= " ";
   switch (game) {
     case 0: $("#8,#12, #13, #14, #18 ").addClass("on"); //turn em on
-     document.getElementById("13").innerText= "Press here.";
+     document.getElementById("13").innerHTML= "<p id='press'>  X</p>";
       break;
     case 1:
-      $("#8,#12, #13, #14, #18 ").addClass("on"); 
+      $("#3, #11, #15, #17, #18, #19").addClass("on"); 
       break;
     case 2:
-      $("#8,#12, #13, #14, #18 ").addClass("on"); 
+      $("#8, #11, #15, #19, #23 ").addClass("on"); 
       break;
     case 3:
-      $("#8,#12, #13, #14, #18 ").addClass("on"); 
+      $("#4, #9, #10, #11, #15, #20, #22").addClass("on"); 
       break;
     case 4:
-      $("#2").addClass("on");
+      $("#3, #5, #6, #13, #20, #21, #23").addClass("on");
       break;
     case 5:
-      $("#1 ,#2").addClass("on"); 
+      $("#2, #4, #5, #6, #12, #14, #20, #21, #22, #24").addClass("on"); 
       break;
     case 6:
-      $("#2").addClass("on");
+      $("#1,#7,#10,#11,#13,#14,#17,#21,#22,#25").addClass("on");
       break;
     case 7:
-      $("#1 ,#2").addClass("on"); 
+      $("#3, #4, #6, #7, #8, #9, #14, #16, #18, #22, #25").addClass("on"); 
       break;
     case 8:
-      $("#2").addClass("on");
+      $("#2, #3, #5, #10, #12, #13, #15, #16, #18, #19, #22, #25").addClass("on");
       break;
     case 9:
-      $("#1 ,#2").addClass("on"); 
+      $("#1, #5, #9, #11, #15, #13, #14, #15, #19, #22, #23, #25").addClass("on"); 
       break;
     case 10:
-      $("#2").addClass("on");
+      $("#3, #4, #6, #7, #9, #10, #12, #13, #15, #16, #20, #21").addClass("on");
       break;
       case 11:
-       $("#8,#12, #13, #14, #18 ").addClass("on"); 
+       $("#1, #3, #5, #7, #9, #16, #19, #22, #23, #25").addClass("on"); 
       break;
       case 12:
-      $("#8,#12, #13, #14, #18 ").addClass("on");
+      $("#18, #22, #24").addClass("on");
       break;
   }
 }
@@ -212,23 +214,3 @@ Below, or show number of moves done
  if this, nice maybe to show how much left, but will need to go into negative.
 - count moves against least number of moves required->points
 */
-
-/* A less flexible method
-var s1= document.getElementById("1");
-var s2= document.getElementById("2");
-var s3= document.getElementById("3");
-var s4= document.getElementById("4");
-var s5= document.getElementById("5");
-var s6= document.getElementById("6");
-var s7= document.getElementById("7");
-var s8= document.getElementById("8");
-var s9= document.getElementById("9");
-
-s2.onclick= ()=>toggleAround(2);
-s3.onclick= ()=>toggleAround(3);
-s4.onclick= ()=>toggleAround(4);
-s5.onclick= ()=>toggleAround(5);
-s6.onclick= ()=>toggleAround(6);
-s7.onclick= ()=>toggleAround(7);
-s8.onclick= ()=>toggleAround(8);
-s9.onclick= ()=>toggleAround(9);*/

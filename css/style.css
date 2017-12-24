@@ -1,36 +1,62 @@
-.toy{
- background: grey;
-  position: absolute;
-  top: 5vh;
-  left: 15vw;
-  width: 80vw;
-  height: 90vw;
-}
-.game-area{
-  position: absolute;
-  top:0;
-  left:0;
-  /*for landscape*/
- height: 80vw; 
-  width: 80vw; 
-  background: blue;
-}
-.game-choices{
-position: absolute;
-  top: 80vw;
-  left: 0%;
-  width: 100%;
-  background:red;
-    padding: 2%;
-    box-sizing: border-box;
-}
 body{
   cursor: default;
   overflow: hidden;
   font-size: 1em;
+  background: pink;
+  font-family: "Share Tech Mono", monospace;
+}
+.toy{
+ background: grey;
+  position: absolute;
+  top: 5vh;
+  left: 10vw;
+  width: 80vw;
+  height: 90vw;
+  border-radius: 10%;
+  overflow: hidden;
+  box-shadow:  0.25vw 0.25vw 0.25vw, inset 0.25vw 0.25vw 0.25vw 0.25vw white, inset -0.15vw -0.15vw 0.15vw;
+}
+.game-area{
+  position: absolute;
+  top:5%;
+  left:5%;
+ height: 80%; 
+  width: 90%; 
+
+}
+
+.game-choices{
+position: absolute;
+  top: 70%;
+  height: 30%;
+  left: 0%;
+  width: 100%;
+ /* background:red;*/
+    padding: 2%;
+    box-sizing: border-box;
+text-align: center;
+    font-size: 3vh; 
+}
+.game-numbers{
+   display: flex;
+  flex-flow: row wrap; 
+  justify-content: space-around;
+  
+   align-items: center;
+}
+.game-level{
+  padding: 1% 5%;
+  margin: 1%;
+ 
+  background: #bbbbbb;
+  box-shadow:  0.25vw 0.25vw 0.25vw, inset 0.25vw 0.25vw 0.25vw 0.25vw white, inset -0.15vw -0.15vw 0.15vw;
 }
 
 
+
+
+/*
+Animation another time
 @keyframes toggle-animation{
   0%{
     box-shadow: none;
@@ -43,31 +69,39 @@ body{
   }
 }
 .pressed{
- /* background: linear-gradient(black, transparent);*/
-    /*box-shadow: .25vw .25vw 3vw .25vw inset, -.25vw -.25vw 3vw .25vw inset;*/
-}
-
+  background: linear-gradient(black, transparent);
+   box-shadow: .25vw .25vw 3vw .25vw inset, -.25vw -.25vw 3vw .25vw inset;
+}*/
+/*.row-place{
+  position: absolute;
+  background: green;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}*/
 .row{
   position: absolute;
   left: 5%;
   width: 90%;
   height: 15%;
   display: flex;
+  box-sizing: border-box;
 }
 .r1{
-  top: 5%;
+  top:0%
 }
 .r2{
-  top: 20%;
+  top: 15%
 }
 .r3{
-  top: 35%;
+  top: 30%;
 }
 .r4{
- top: 50% 
+ top: 45% 
 }
 .r5{
-  top: 65%;
+  top: 60%;
 }
 .square{
   /*border: 2px black solid;*/
@@ -77,6 +111,7 @@ body{
    box-shadow: .25vw .25vw .25vw white inset, -.25vw -.25vw .25vw white inset;
    text-align:center;
  cursor: pointer;
+  font-size: 4vh;
 }
 
 .on{
@@ -99,10 +134,7 @@ body{
   left: 0;
   top: 0;
   width: 80vw;
-  height: 80vh;
-   
-  
-  
+  height: 80vh;  
 }
 
 #help-text h1, #help-description{
@@ -118,31 +150,56 @@ body{
 #press{
   font-size: .75em;
 }
-@media(min-device-width : 400px){
-  body{
+@media(max-height: 600px) {
+  .toy{
+    height:85vh;
    /* font-size: 1em;*/
   }
 }
-
+/*landscape and (max-height: 600px)*/
 @media (min-aspect-ratio: 4/5) {
   .game-area {
-     height: 45vw; 
-  width: 45vw; 
+     height: 100%; 
+  width: 50%; 
   }
+ 
   .toy{
-    height: 45vw;
+    height: 80vh;
   }
   .game-choices{
   position: absolute;
-  top: 0;
-  left: 45vw;
-  height: 45vw;
-  width: 35vw;
+ top: 30%;
+  left: 55%; 
+  width: 45%;
     padding: 2%;
     box-sizing: border-box;
-    background: red;
+ 
   }
   #press{
     font-size: 1em;
   }
+  
+  .row{
+  position: absolute;
+  left: 5%;
+  width: 90%;
+  height: 15%;
+  display: flex;
+  box-sizing: border-box;
+}
+.r1{
+  top: 0%;
+}
+.r2{
+  top: 15%;
+}
+.r3{
+  top: 30%;
+}
+.r4{
+ top: 45% 
+}
+.r5{
+  top: 60%;
+}
 }
