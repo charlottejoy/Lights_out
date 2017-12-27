@@ -93,7 +93,7 @@ function drawGame(game) {
   document.getElementById("13").innerText= " ";
   switch (game) {
     case 0: $("#8,#12, #13, #14, #18 ").addClass("on"); //turn em on
-     document.getElementById("13").innerHTML= "<p id='press'>  X</p>";
+     document.getElementById("13").innerHTML= "<p id='press'>X</p>";
       break;
     case 1:
       $("#3, #11, #15, #17, #18, #19").addClass("on"); 
@@ -141,20 +141,23 @@ $(".square").click(function() {
 });
 
 //next level click
-$("#next").click(function() {
-   game++;
+$("#next").click(function() {  
+  alert(game + typeof(game));
+  game++;
+  
+// alert(game);
   if(game==0){
       document.getElementById("game-name").innerText = "Tutorial Game";
-     drawGame(game);
+     drawGame(NUmber(game)); //this only seems to work if the caps are wrong. The type is already "Number"
   }
   
  else if (game<= totalGames){//if games left
   
   document.getElementById("game-name").innerText = "Game " + game;
-  drawGame(game);
+  drawGame(NUmber(game));
  }
   
-  else{
+ else{
      if (confirm(" No more designed games.  Play a random game?"))  {
  randomGame();
    } 
@@ -163,16 +166,19 @@ $("#next").click(function() {
       "Choose a game to continue.";  
     }
   }
+ // }
 });
 
 //choose level
 $(".game-level").click(function() {
   var gameString = String($(this).attr("id"));
-  var gameLevelId = gameString.slice(0, -1);
+  var gameLevelId = gameString.slice(1, gameString.length);
   var gameLevelChoice = Number(gameLevelId);
+ // alert(gameLevelChoice);
   drawGame(gameLevelChoice);
   document.getElementById("game-name").innerText = "Game " + gameLevelChoice;
   game = gameLevelChoice;
+ // alert(gameLevelChoice +typeof(gameLevelChoice));
 });
 
 //random button

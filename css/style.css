@@ -12,26 +12,67 @@ body{
   left: 10vw;
   width: 80vw;
   height: 90vw;
-  border-radius: 10%;
+  border-radius: 5%;
   overflow: hidden;
   box-shadow:  0.25vw 0.25vw 0.25vw, inset 0.25vw 0.25vw 0.25vw 0.25vw white, inset -0.15vw -0.15vw 0.15vw;
 }
 .game-area{
+   border: 2px black solid;
   position: absolute;
   top:5%;
   left:5%;
- height: 80%; 
+ height: 55%; 
   width: 90%; 
 
+  
+}
+.row{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  box-sizing: border-box;
+   display: flex;
+  justify-content: space-around;
+}
+.r1{
+top: 0;
+
+}
+.r2{
+ top: 20%;
+
+}
+.r3{
+ top: 40%
+}
+.r4{
+ top: 60%;
+}
+.r5{
+  top: 80%;
+     
+}
+.square{
+  /*border: 2px black solid;*/
+  height: 100%;
+  width: 20%;
+  border-radius: 10%;
+   box-shadow: .25vw .25vw .25vw white inset, -.25vw -.25vw .25vw white inset;
+ cursor: pointer;
+  font-size: 4vh;
+  display: flex;
+   align-items: center;
+  justify-content: center;
 }
 
 .game-choices{
 position: absolute;
-  top: 70%;
-  height: 30%;
+  top: 60%;
+  height: 40%;
   left: 0%;
   width: 100%;
- /* background:red;*/
+ //background:red;
     padding: 2%;
     box-sizing: border-box;
 text-align: center;
@@ -80,39 +121,7 @@ Animation another time
   height: 100%;
   width: 100%;
 }*/
-.row{
-  position: absolute;
-  left: 5%;
-  width: 90%;
-  height: 15%;
-  display: flex;
-  box-sizing: border-box;
-}
-.r1{
-  top:0%
-}
-.r2{
-  top: 15%
-}
-.r3{
-  top: 30%;
-}
-.r4{
- top: 45% 
-}
-.r5{
-  top: 60%;
-}
-.square{
-  /*border: 2px black solid;*/
-  height: 100%;
-  width: 20%;
-  border-radius: 10%;
-   box-shadow: .25vw .25vw .25vw white inset, -.25vw -.25vw .25vw white inset;
-   text-align:center;
- cursor: pointer;
-  font-size: 4vh;
-}
+
 
 .on{
   background: pink;
@@ -134,7 +143,10 @@ Animation another time
   left: 0;
   top: 0;
   width: 80vw;
-  height: 80vh;  
+  height: 80vh;
+   
+  
+  
 }
 
 #help-text h1, #help-description{
@@ -148,7 +160,7 @@ Animation another time
 }
 
 #press{
-  font-size: .75em;
+  font-size: 3vh;
 }
 @media(max-height: 600px) {
   .toy{
@@ -156,9 +168,10 @@ Animation another time
    /* font-size: 1em;*/
   }
 }
-/*landscape and (max-height: 600px)*/
-@media (min-aspect-ratio: 4/5) {
+/*landscape*/
+@media (min-aspect-ratio: 1/1) {
   .game-area {
+    border: none;
      height: 100%; 
   width: 50%; 
   }
@@ -202,4 +215,18 @@ Animation another time
 .r5{
   top: 60%;
 }
+}
+
+@media (max-width: 250px){
+  .game-area{
+   background: yellow;
+  }
+ .game-number-buttons{
+    display: none;
+  }
+}
+@media (max-width:400px) {
+  .game-choices{
+    font-size: 14px;
+  }
 }
