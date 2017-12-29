@@ -1,13 +1,12 @@
-body {
+body{
   cursor: default;
   overflow: hidden;
   font-size: 1em;
   background: pink;
   font-family: "Share Tech Mono", monospace;
 }
-
-.toy {
-  background: grey;
+.toy{
+ background: grey;
   position: absolute;
   top: 5vh;
   left: 10vw;
@@ -15,86 +14,87 @@ body {
   height: 90vw;
   border-radius: 5%;
   overflow: hidden;
-  box-shadow: 0.25vw 0.25vw 0.25vw, inset 0.25vw 0.25vw 0.25vw 0.25vw white, inset -0.15vw -0.15vw 0.15vw;
+  box-shadow:  0.25vw 0.25vw 0.25vw, inset 0.25vw 0.25vw 0.25vw 0.25vw white, inset -0.15vw -0.15vw 0.15vw;
 }
-
-.game-area {
-  border: 2px black solid;
+.game-area{
+   border: 2px black solid;
   position: absolute;
-  top: 5%;
-  left: 5%;
-  height: 55%;
-  width: 90%;
-}
+  top:5%;
+  left:5%;
+ height: 55%; 
+  width: 90%; 
 
-.row {
+  
+}
+.row{
   position: absolute;
   left: 0;
   width: 100%;
   height: 20%;
   box-sizing: border-box;
-  display: flex;
+   display: flex;
   justify-content: space-around;
 }
+.r1{
+top: 0;
 
-.r1 {
-  top: 0;
 }
+.r2{
+ top: 20%;
 
-.r2 {
-  top: 20%;
 }
-
-.r3 {
-  top: 40%;
+.r3{
+ top: 40%
 }
-
-.r4 {
-  top: 60%;
+.r4{
+ top: 60%;
 }
-
-.r5 {
+.r5{
   top: 80%;
+     
 }
-
-.square {
+.square{
   /*border: 2px black solid;*/
   height: 100%;
   width: 20%;
   border-radius: 10%;
-  box-shadow: .25vw .25vw .25vw white inset, -.25vw -.25vw .25vw white inset;
-  cursor: pointer;
+   box-shadow: .25vw .25vw .25vw white inset, -.25vw -.25vw .25vw white inset;
+ cursor: pointer;
   font-size: 4vh;
   display: flex;
-  align-items: center;
+   align-items: center;
   justify-content: center;
 }
 
-.game-choices {
-  position: absolute;
+.game-choices{
+position: absolute;
   top: 60%;
   height: 40%;
   left: 0%;
   width: 100%;
-  padding: 2%;
-  box-sizing: border-box;
-  text-align: center;
-  font-size: 3vh;
+ //background:red;
+    padding: 2%;
+    box-sizing: border-box;
+text-align: center;
+    font-size: 3vh; 
 }
-
-.game-numbers {
-  display: flex;
-  flex-flow: row wrap;
+.game-numbers{
+   display: flex;
+  flex-flow: row wrap; 
   justify-content: space-around;
-  align-items: center;
+  
+   align-items: center;
 }
-
-.game-level {
+.game-level{
   padding: 1% 5%;
   margin: 1%;
+ 
   background: #bbbbbb;
-  box-shadow: 0.25vw 0.25vw 0.25vw, inset 0.25vw 0.25vw 0.25vw 0.25vw white, inset -0.15vw -0.15vw 0.15vw;
+  box-shadow:  0.25vw 0.25vw 0.25vw, inset 0.25vw 0.25vw 0.25vw 0.25vw white, inset -0.15vw -0.15vw 0.15vw;
 }
+
+
+
 
 /*
 Animation another time
@@ -121,20 +121,22 @@ Animation another time
   height: 100%;
   width: 100%;
 }*/
-.on {
+
+
+.on{
   background: pink;
 }
 
-.game-numbers {
+
+.game-numbers{
   cursor: pointer;
 }
-
-#help {
-  cursor: pointer;
+.game-level{}
+#help{
+   cursor: pointer;
 }
-
-#help-text {
-  display: none;
+#help-text{
+  display:none;
   background: pink;
   padding: 10%;
   position: absolute;
@@ -142,93 +144,89 @@ Animation another time
   top: 0;
   width: 80vw;
   height: 80vh;
+   
+  
+  
 }
 
-#help-text h1, #help-description {
+#help-text h1, #help-description{
   cursor: text;
 }
 
-#close {
-  text-align: right;
+#close{
+  text-align:right;
   font-weight: bold;
   cursor: pointer;
 }
 
-#press {
+#press{
   font-size: 3vh;
 }
-
-@media (max-height: 600px) {
-  .toy {
-    height: 85vh;
-    /* font-size: 1em;*/
+@media(max-height: 600px) {
+  .toy{
+    height:85vh;
+   /* font-size: 1em;*/
   }
 }
 /*landscape*/
-@media (min-aspect-ratio: 1 / 1) {
+@media (min-aspect-ratio: 1/1) {
   .game-area {
     border: none;
-    height: 100%;
-    width: 50%;
+     height: 100%; 
+  width: 50%; 
   }
-
-  .toy {
+ 
+  .toy{
     height: 80vh;
   }
-
-  .game-choices {
-    position: absolute;
-    top: 30%;
-    left: 55%;
-    width: 45%;
+  .game-choices{
+  position: absolute;
+ top: 30%;
+  left: 55%; 
+  width: 45%;
     padding: 2%;
     box-sizing: border-box;
+ 
   }
-
-  #press {
+  #press{
     font-size: 1em;
   }
-
-  .row {
-    position: absolute;
-    left: 5%;
-    width: 90%;
-    height: 15%;
-    display: flex;
-    box-sizing: border-box;
-  }
-
-  .r1 {
-    top: 0%;
-  }
-
-  .r2 {
-    top: 15%;
-  }
-
-  .r3 {
-    top: 30%;
-  }
-
-  .r4 {
-    top: 45%;
-  }
-
-  .r5 {
-    top: 60%;
-  }
+  
+  .row{
+  position: absolute;
+  left: 5%;
+  width: 90%;
+  height: 15%;
+  display: flex;
+  box-sizing: border-box;
 }
-@media (max-width: 250px) {
-  .game-area {
-    background: yellow;
-  }
+.r1{
+  top: 0%;
+}
+.r2{
+  top: 15%;
+}
+.r3{
+  top: 30%;
+}
+.r4{
+ top: 45% 
+}
+.r5{
+  top: 60%;
+}
+}
 
-  .game-number-buttons {
+@media (max-width: 250px){
+  .game-area{
+   background: yellow;
+  }
+ .game-number-buttons{
     display: none;
   }
 }
-@media (max-width: 400px) {
-  .game-choices {
+@media (max-width:400px) {
+  .game-choices{
     font-size: 14px;
   }
 }
