@@ -1,100 +1,77 @@
-body{
+$game-area: lightblue;
+$off: white;
+$on: pink;
+$background: pink;
+$button: white;
+$button-on: grey;
+$button-off: black;
+
+body,
+html {
   cursor: default;
   overflow: hidden;
   font-size: 1em;
-  background: pink;
+  background: $background;
   font-family: "Share Tech Mono", monospace;
-}
-.toy{
- background: grey;
-  position: absolute;
-  top: 5vh;
-  left: 10vw;
-  width: 80vw;
-  height: 90vw;
-  border-radius: 5%;
-  overflow: hidden;
-  box-shadow:  0.25vw 0.25vw 0.25vw, inset 0.25vw 0.25vw 0.25vw 0.25vw white, inset -0.15vw -0.15vw 0.15vw;
-}
-.game-area{
-   border: 2px black solid;
-  position: absolute;
-  top:5%;
-  left:5%;
- height: 55%; 
-  width: 90%; 
-
-  
-}
-.row{
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 20%;
-  box-sizing: border-box;
-   display: flex;
-  justify-content: space-around;
-}
-.r1{
-top: 0;
-
-}
-.r2{
- top: 20%;
-
-}
-.r3{
- top: 40%
-}
-.r4{
- top: 60%;
-}
-.r5{
-  top: 80%;
-     
-}
-.square{
-  /*border: 2px black solid;*/
   height: 100%;
-  width: 20%;
-  border-radius: 10%;
-   box-shadow: .25vw .25vw .25vw white inset, -.25vw -.25vw .25vw white inset;
- cursor: pointer;
-  font-size: 4vh;
+  width: 100%;
+  overflow: hidden;
   display: flex;
-   align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+.game-area {
+  position: relative;
+  height: 70vmin;
+  width: 70vmin;
+  background: $game-area;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.row {
+  position: relative;
+  width: 100%;
+  height: 15%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
-.game-choices{
-position: absolute;
-  top: 60%;
-  height: 40%;
-  left: 0%;
-  width: 100%;
- //background:red;
-    padding: 2%;
-    box-sizing: border-box;
-text-align: center;
-    font-size: 3vh; 
+.square {
+  /*border: 2px black solid;*/
+  position: relative;
+  height: 100%;
+  width: 15%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $off;
 }
-.game-numbers{
-   display: flex;
-  flex-flow: row wrap; 
+
+.game-choices {
+  position: relative;
+  height: 30vmin;
+  width: 90vw;
+  padding: 2em;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 3vh;
+}
+.game-numbers {
+  display: flex;
+  flex-flow: row wrap;
   justify-content: space-around;
-  
-   align-items: center;
+  align-items: center;
 }
-.game-level{
+.game-level {
   padding: 1% 5%;
   margin: 1%;
- 
   background: #bbbbbb;
-  box-shadow:  0.25vw 0.25vw 0.25vw, inset 0.25vw 0.25vw 0.25vw 0.25vw white, inset -0.15vw -0.15vw 0.15vw;
 }
-
-
-
 
 /*
 Animation another time
@@ -113,120 +90,118 @@ Animation another time
   background: linear-gradient(black, transparent);
    box-shadow: .25vw .25vw 3vw .25vw inset, -.25vw -.25vw 3vw .25vw inset;
 }*/
-/*.row-place{
-  position: absolute;
-  background: green;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}*/
 
-
-.on{
-  background: pink;
+.on {
+  background: $on;
 }
 
-
-.game-numbers{
+.game-numbers {
   cursor: pointer;
 }
-.game-level{}
-#help{
-   cursor: pointer;
+.game-level {
 }
-#help-text{
-  display:none;
-  background: pink;
+#help {
+  cursor: pointer;
+}
+#help-text {
+  display: none;
+  background: $on;
   padding: 10%;
   position: absolute;
   left: 0;
   top: 0;
   width: 80vw;
   height: 80vh;
-   
-  
-  
 }
 
-#help-text h1, #help-description{
+#help-text h1,
+#help-description {
   cursor: text;
 }
 
-#close{
-  text-align:right;
+#close {
+  text-align: right;
   font-weight: bold;
   cursor: pointer;
 }
 
-#press{
+#press {
   font-size: 3vh;
 }
-@media(max-height: 600px) {
-  .toy{
-    height:85vh;
-   /* font-size: 1em;*/
-  }
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 {
+  font-size: 18px;
 }
-/*landscape*/
-@media (min-aspect-ratio: 1/1) {
-  .game-area {
-    border: none;
-     height: 100%; 
-  width: 50%; 
-  }
- 
-  .toy{
-    height: 80vh;
-  }
-  .game-choices{
-  position: absolute;
- top: 30%;
-  left: 55%; 
-  width: 45%;
-    padding: 2%;
-    box-sizing: border-box;
- 
-  }
-  #press{
-    font-size: 1em;
-  }
-  
-  .row{
-  position: absolute;
-  left: 5%;
-  width: 90%;
-  height: 15%;
-  display: flex;
-  box-sizing: border-box;
+.material-icons.md-24 {
+  font-size: 24px;
 }
-.r1{
-  top: 0%;
+.material-icons.md-36 {
+  font-size: 36px;
 }
-.r2{
-  top: 15%;
-}
-.r3{
-  top: 30%;
-}
-.r4{
- top: 45% 
-}
-.r5{
-  top: 60%;
-}
+.material-icons.md-48 {
+  font-size: 48px;
 }
 
-@media (max-width: 250px){
-  .game-area{
-   background: yellow;
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54);
+}
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light {
+  color: rgba(255, 255, 255, 1);
+}
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/*@media(max-height: 600px) {
+  .toy{
+    height:85vh;
+    font-size: 1em;
   }
- .game-number-buttons{
+}*/
+/*landscape*/
+@media (min-aspect-ratio: 1/1) {
+  body,
+  html {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .game-area {
+    border: none;
+  }
+  .game-choices {
+    /*  position: absolute;
+ top: 30%;
+  left: 55%; */
+    width: 30vmin;
+    padding: 2%;
+    box-sizing: border-box;
+  }
+  #press {
+    font-size: 1em;
+    color: yellow;
+  }
+}
+
+@media (max-width: 250px), (max-height: 250px) {
+  //how does dp work?
+  .game-area {
+  //  background: yellow;
+  }
+  .game-number-buttons {
     display: none;
   }
 }
-@media (max-width:400px) {
-  .game-choices{
+@media (max-width: 400px), (max-height: 400px) {
+  .game-choices {
     font-size: 14px;
   }
 }

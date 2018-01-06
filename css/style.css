@@ -1,82 +1,56 @@
-body {
+body,
+html {
   cursor: default;
   overflow: hidden;
   font-size: 1em;
   background: pink;
   font-family: "Share Tech Mono", monospace;
-}
-
-.toy {
-  background: grey;
-  position: absolute;
-  top: 5vh;
-  left: 10vw;
-  width: 80vw;
-  height: 90vw;
-  border-radius: 5%;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
-  box-shadow: 0.25vw 0.25vw 0.25vw, inset 0.25vw 0.25vw 0.25vw 0.25vw white, inset -0.15vw -0.15vw 0.15vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .game-area {
-  border: 2px black solid;
-  position: absolute;
-  top: 5%;
-  left: 5%;
-  height: 55%;
-  width: 90%;
-}
-
-.row {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 20%;
-  box-sizing: border-box;
+  position: relative;
+  height: 70vmin;
+  width: 70vmin;
+  background: lightblue;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
 }
 
-.r1 {
-  top: 0;
-}
-
-.r2 {
-  top: 20%;
-}
-
-.r3 {
-  top: 40%;
-}
-
-.r4 {
-  top: 60%;
-}
-
-.r5 {
-  top: 80%;
+.row {
+  position: relative;
+  width: 100%;
+  height: 15%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .square {
   /*border: 2px black solid;*/
+  position: relative;
   height: 100%;
-  width: 20%;
-  border-radius: 10%;
-  box-shadow: .25vw .25vw .25vw white inset, -.25vw -.25vw .25vw white inset;
+  width: 15%;
   cursor: pointer;
-  font-size: 4vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: white;
 }
 
 .game-choices {
-  position: absolute;
-  top: 60%;
-  height: 40%;
-  left: 0%;
-  width: 100%;
-  padding: 2%;
+  position: relative;
+  height: 30vmin;
+  width: 90vw;
+  padding: 2em;
   box-sizing: border-box;
   text-align: center;
   font-size: 3vh;
@@ -93,7 +67,6 @@ body {
   padding: 1% 5%;
   margin: 1%;
   background: #bbbbbb;
-  box-shadow: 0.25vw 0.25vw 0.25vw, inset 0.25vw 0.25vw 0.25vw 0.25vw white, inset -0.15vw -0.15vw 0.15vw;
 }
 
 /*
@@ -112,14 +85,6 @@ Animation another time
 .pressed{
   background: linear-gradient(black, transparent);
    box-shadow: .25vw .25vw 3vw .25vw inset, -.25vw -.25vw 3vw .25vw inset;
-}*/
-/*.row-place{
-  position: absolute;
-  background: green;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
 }*/
 .on {
   background: pink;
@@ -144,7 +109,8 @@ Animation another time
   height: 80vh;
 }
 
-#help-text h1, #help-description {
+#help-text h1,
+#help-description {
   cursor: text;
 }
 
@@ -158,76 +124,81 @@ Animation another time
   font-size: 3vh;
 }
 
-@media (max-height: 600px) {
-  .toy {
-    height: 85vh;
-    /* font-size: 1em;*/
-  }
+/* Rules for sizing the icon. */
+.material-icons.md-18 {
+  font-size: 18px;
 }
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light {
+  color: white;
+}
+
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/*@media(max-height: 600px) {
+  .toy{
+    height:85vh;
+    font-size: 1em;
+  }
+}*/
 /*landscape*/
 @media (min-aspect-ratio: 1 / 1) {
-  .game-area {
-    border: none;
-    height: 100%;
-    width: 50%;
+  body,
+  html {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 
-  .toy {
-    height: 80vh;
+  .game-area {
+    border: none;
   }
 
   .game-choices {
-    position: absolute;
-    top: 30%;
-    left: 55%;
-    width: 45%;
+   /*  position: absolute;
+top: 30%;
+ left: 55%; */
+    width: 30vmin;
     padding: 2%;
     box-sizing: border-box;
   }
 
   #press {
     font-size: 1em;
-  }
-
-  .row {
-    position: absolute;
-    left: 5%;
-    width: 90%;
-    height: 15%;
-    display: flex;
-    box-sizing: border-box;
-  }
-
-  .r1 {
-    top: 0%;
-  }
-
-  .r2 {
-    top: 15%;
-  }
-
-  .r3 {
-    top: 30%;
-  }
-
-  .r4 {
-    top: 45%;
-  }
-
-  .r5 {
-    top: 60%;
+    color: yellow;
   }
 }
-@media (max-width: 250px) {
-  .game-area {
-    background: yellow;
-  }
-
+@media (max-width: 250px), (max-height: 250px) {
   .game-number-buttons {
     display: none;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 400px), (max-height: 400px) {
   .game-choices {
     font-size: 14px;
   }
