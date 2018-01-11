@@ -126,7 +126,7 @@ function drawGame(game) {
   $(gamesList[game]).addClass("on");
  // alert("Moves needed" +gamesList[game].moves);
   if(game==0){
-     document.getElementById("13").innerHTML = "<p id='press'>X</p>";
+     document.getElementById("13").innerHTML = "<h1 id='pressed'>*</h1>";
     
   }
   
