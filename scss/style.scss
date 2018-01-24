@@ -52,7 +52,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: $off;
+ // background: $off;
   box-sizing: border-box;
 }
 
@@ -108,9 +108,20 @@ Animation another time
 }*/
 
 .on {
-  background: $on;
+background: $on;
  // opacity: 0; if there are cells below and the top cell has an image= fun theme. 
 }
+
+.blue{
+  background: blue;
+}
+.green{
+  background: green;
+}
+.pink{
+    background: pink;
+}
+
 
 .game-numbers {
   cursor: pointer;
@@ -195,7 +206,7 @@ Animation another time
     /*  position: absolute;
  top: 30%;
   left: 55%; */
-    width: 30vmin;
+    width: 30vw;
     padding: 2%;
     box-sizing: border-box;
   }

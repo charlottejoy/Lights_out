@@ -1,6 +1,13 @@
 var size = 5;
 var game=0;
 var totalGames = 12;
+
+var on="on";
+var off="green";
+var ons="on blue"
+var offs="green pink"
+//*$(".square").addClass("heart");
+
 var gamesList={
      0:"#8,#12, #13, #14, #18 ",
      1:"#3, #11, #15, #17, #18, #19",
@@ -16,59 +23,81 @@ var gamesList={
      11:"#1, #3, #5, #7, #9, #16, #19, #22, #23, #25",
      12:"#18, #22, #24",
 };
+//choose theme
+var theme=($('input:radio:checked').val());
+
+//make theme object on, off attributes, colours
+//remove class can be array except for selected class
+$(":radio").change(function() {
+  
+  
+  theme=($('input:radio:checked').val());
+   console.log(theme);
+  
+  if(theme=="valentines"){
+    // $(".square").addClass("green");// everything is green
+    on="blue";
+  //  $(".square").removeClass("on pink");
+  // $(".on").removeClass(".on").addClass(".blue");
+   // $(".square").css("background-color", "green");
+    //$(on).css("background-color", "blue");
+   off="pink";
+  // $(".pink").removeClass(".pink").addClass(".green");
+    
+     }
+     
+     else{
+     on="on";   
+     //   $(".square").removeClass("heart green");
+    off="green";
+     }
+
+drawGame(game); 
+ console.log(on);
+});
 
 //begin
 drawGame(0);
 //create random game
-function randomGame() {
-  $(".square").removeClass("on");
-  document.getElementById("game-name").innerText = "Random Game";
-  document.getElementById("13").innerText = " ";//clear tutorial "X"
-  var randomLength = Math.floor(Math.random() * 25) + 1;
-  var randomArray = [];
-  var randomNumber;
-  var i = 0;
-  while (i < randomLength) {
-    randomNumber = Math.floor(Math.random() * 25) + 1;
-    randomArray.push("#" + randomNumber/*.toString()*/);
-    i++;
-  }
-  $(randomArray.join()).addClass("on");
-  game = -1;
-}
+
 
 //toggle lights
 function toggleAround(clicked) {
   var numClick = parseInt(clicked); // if this is not converted to a number, we get bad math (5+3=53)
 
   var center = document.getElementById(numClick);
-  center.classList.toggle("on");
+  center.classList.toggle(on);
+    center.classList.toggle(off);
 
   if (numClick % size != 0 && numClick + 1 <= size * size) {
     //if not at end of row
     var right = document.getElementById(numClick + 1);
-    right.classList.toggle("on");
+    right.classList.toggle(on);
+    right.classList.toggle(off);
   }
 
   if (numClick % size != 1 && numClick - 1 > 0) {
     //if not at beginning of row
     var left = document.getElementById(numClick - 1);
-    left.classList.toggle("on");
+    left.classList.toggle(on);
+    left.classList.toggle(off);
   }
 
   if (numClick + size <= size * size) {
     //if not last row
     var below = document.getElementById(numClick + size);
-    below.classList.toggle("on");
+    below.classList.toggle(on);
+    below.classList.toggle(off);
   }
 
   if (numClick - size > 0) {
     //if not first row
     var above = document.getElementById(numClick - size);
-    above.classList.toggle("on");
+    above.classList.toggle(on);
+     above.classList.toggle(off);
   }
 
-  var anyOn = $("div").hasClass("on");
+  var anyOn = $("div").hasClass(on);
   if (anyOn == false) {
     chooseNext();
   }
@@ -116,21 +145,26 @@ function chooseNext() {
   }
 }
 
+//prime it
+function prime(){
+  $(".square").removeClass(ons).removeClass(offs).addClass(off);//prime it
+  $(".square").removeClass("tutorial"); // turn all off in case
+}
 
 //make game depending on number
 function drawGame(game) {
-
-  $(".square").removeClass("on tutorial"); // turn all off in case
+prime();
   document.getElementById("game-name").innerText = "Game " + game;
   document.getElementById("13").innerText = " ";
-  $(gamesList[game]).addClass("on");
+  $(gamesList[game]).addClass(on).removeClass(offs);//adds on to ids, off to others
  // alert("Moves needed" +gamesList[game].moves);
   if(game==0){
-     document.getElementById("13").innerHTML = "<h1 id='pressed'>*</h1>";
+     document.getElementById("13").innerHTML = "<h1 id='pressed'>X</h1>";
     
   }
-  
-  
+//$(".square").not(".on").addClass(off);
+ // $(".square").addClass(off);
+   console.log(on);
 }
 
 //toggle lights
@@ -138,6 +172,27 @@ $(".square").click(function() {
   var clickedSquare = $(this).attr("id"); //onClick grab id and run through toggle function
   toggleAround(clickedSquare);
 });
+
+
+function randomGame() {
+prime();
+  document.getElementById("game-name").innerText = "Random Game";
+  document.getElementById("13").innerText = " ";//clear tutorial "X"
+  var randomLength = Math.floor(Math.random() * 25) + 1;
+  var randomArray = [];
+  var randomNumber;
+  var i = 0;
+  while (i < randomLength) {
+    randomNumber = Math.floor(Math.random() * 25) + 1;
+    randomArray.push("#" + randomNumber/*.toString()*/);
+    i++;
+  }
+
+  $(randomArray.join()).addClass(on).removeClass(off);// it's on or off
+  game = -1;
+  
+}
+
 
 //choose level
 $(".game-number-buttons").click(function() {

@@ -43,7 +43,6 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: white;
   box-sizing: border-box;
 }
 
@@ -97,6 +96,18 @@ Animation another time
 }*/
 .on {
   background: #FFFF00;
+}
+
+.blue {
+  background: blue;
+}
+
+.green {
+  background: green;
+}
+
+.pink {
+  background: pink;
 }
 
 .game-numbers {
@@ -188,7 +199,7 @@ Animation another time
    /*  position: absolute;
 top: 30%;
  left: 55%; */
-    width: 30vmin;
+    width: 30vw;
     padding: 2%;
     box-sizing: border-box;
   }
