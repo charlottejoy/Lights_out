@@ -2,11 +2,8 @@ var size = 5;
 var game=0;
 var totalGames = 12;
 
-var on="on";
-var off="green";
-var ons="on blue"
-var offs="green pink"
-//*$(".square").addClass("heart");
+
+
 
 var gamesList={
      0:"#8,#12, #13, #14, #18 ",
@@ -23,6 +20,27 @@ var gamesList={
      11:"#1, #3, #5, #7, #9, #16, #19, #22, #23, #25",
      12:"#18, #22, #24",
 };
+
+var themesList = {//theme name and classes to be used for elements
+valentines:{
+  on: "blue",
+  off:"pink",
+},
+  regular:{
+   on: "on",
+    off:"white",
+},
+
+};
+
+
+
+var on="on";
+var off="white";
+var ons="on blue"//
+var offs="white pink"
+
+
 //choose theme
 var theme=($('input:radio:checked').val());
 
@@ -32,28 +50,35 @@ $(":radio").change(function() {
   
   
   theme=($('input:radio:checked').val());
-   console.log(theme);
+   on=(themesList[theme].on);
+   off=(themesList[theme].off);
   
-  if(theme=="valentines"){
-    // $(".square").addClass("green");// everything is green
+  /*if(theme=="valentines"){
     on="blue";
-  //  $(".square").removeClass("on pink");
-  // $(".on").removeClass(".on").addClass(".blue");
-   // $(".square").css("background-color", "green");
-    //$(on).css("background-color", "blue");
    off="pink";
-  // $(".pink").removeClass(".pink").addClass(".green");
     
      }
      
      else{
      on="on";   
-     //   $(".square").removeClass("heart green");
-    off="green";
-     }
+    off="white";
+     }*/
+  
+    var onList="";
+  for (var themeName in themesList) {
+  onList+=(themesList[themeName].on)+ " ";
+}
+  console.log(onList);
+//  var key= Object.keys(themesList)[0]
+  
 
 drawGame(game); 
- console.log(on);
+/*for(var list = 0;list < Object.keys(themesList).length; list++){
+   onArray.push(themesList[Object.keys(themesList)[i].on));
+ };*/
+
+  //themesList[key]);//Object.keys(themesList));
+  //Object.getOwnPropertyNames(themesList).on);
 });
 
 //begin
@@ -160,7 +185,9 @@ prime();
  // alert("Moves needed" +gamesList[game].moves);
   if(game==0){
      document.getElementById("13").innerHTML = "<h1 id='pressed'>X</h1>";
-    
+    $(".square").click(function(){
+  document.getElementById("13").innerText = " ";
+    });
   }
 //$(".square").not(".on").addClass(off);
  // $(".square").addClass(off);
@@ -225,6 +252,9 @@ $("#close").click(function() {
 
 //Missing NICE TO HAVES
 /*
+-theme
+make it all jquery or javascript
+ids should start with letters. 
 ***make next a function (won) if won->show different confirm message. trigger this function on #Next click, rather than it having its own function. 
 ***light up animation on win. 
 
