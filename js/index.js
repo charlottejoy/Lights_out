@@ -25,62 +25,136 @@ var themesList = {//theme name and classes to be used for elements
 valentines:{
   on: "blue",
   off:"pink",
+  gameBackground:"light-blue", //.game-area
+  gameLevelColor:"pink",//.game-level
+  textColor: "black-text",
+ helpColor:"pink",//#help-text
+  bodyColor: "white",//body
 },
   regular:{
    on: "on",
-    off:"white",
+    off:"off",
+  gameBackground:".game-background",
+         gameLevelColor:"game-level-color",
+     textColor: "black-text",
+ helpColor:"background",//#help-text
+  bodyColor: "background",//body
 },
 
 };
 
 
 
-var on="on";
-var off="white";
-var ons="on blue"//
-var offs="white pink"
+var on;
+var off;
+var gameBackground;
+var textColor;
+var bodyColor;
+var helpColor;
+var gameLevelColor;
 
+var onList="";
+  for (var themeName in themesList) {
+  onList+=(themesList[themeName].on)+ " ";
+}
+var ons=onList;
+
+var offList="";
+  for (var themeName in themesList) {
+  offList+=(themesList[themeName].off)+ " ";
+}
+var offs=offList;
+
+var gameBackgroundsList="";
+  for (var themeName in themesList) {
+  gameBackgroundsList+=(themesList[themeName].gameBackground)+ " ";
+}
+var gameBackgrounds=gameBackgroundsList;
+
+var textColorsList="";
+  for (var themeName in themesList) {
+  onList+=(themesList[themeName].textColor)+ " ";
+}
+var textColors=onList;
+
+var bodyColorList="";
+  for (var themeName in themesList) {
+  onList+=(themesList[themeName].bodyColor)+ " ";
+}
+var bodyColors=onList;
+
+var helpColorList="";
+  for (var themeName in themesList) {
+  onList+=(themesList[themeName].helpColor)+ " ";
+}
+var helpColors=onList;
+
+var gameLevelColorList="";
+  for (var themeName in themesList) {
+  onList+=(themesList[themeName].gameLevelColor)+ " ";
+}
+var gameLevelColors=onList;
 
 //choose theme
 var theme=($('input:radio:checked').val());
 
 //make theme object on, off attributes, colours
 //remove class can be array except for selected class
-$(":radio").change(function() {
+
+//make this onLoad
+addTheme();
+
+function addTheme(){
+  
+  // GET IDS of squares with on class, remove on classes, add new on. same for offs
+  var onSquaresArray=[];
+  $(".square."+on).each(function(){
+    onSquaresArray.push("#" + this.id);
+  });
+  var onSquares= onSquaresArray.join(", ");
   
   
+  var offSquaresArray=[];
+  $(".square."+off).each(function(){
+    offSquaresArray.push("#" + this.id);
+  });
+  var offSquares= offSquaresArray.join(", ");
+  
+  
+  //get theme components
   theme=($('input:radio:checked').val());
-   on=(themesList[theme].on);
-   off=(themesList[theme].off);
+  on=(themesList[theme].on);
+  off=(themesList[theme].off);
+  gameBackground= (themesList[theme].gameBackground);
+  textColor=(themesList[theme].textColor);
+    bodyColor=(themesList[theme].bodyColor);
+    helpColor=(themesList[theme].helpColor);
+   gameLevelColor=(themesList[theme].gameLevelColor);
   
-  /*if(theme=="valentines"){
-    on="blue";
-   off="pink";
-    
-     }
-     
-     else{
-     on="on";   
-    off="white";
-     }*/
+  //add theme to game
+   $(onSquares).removeClass(onList).addClass(on);
+   $(offSquares).removeClass(offList).addClass(off);
   
-    var onList="";
-  for (var themeName in themesList) {
-  onList+=(themesList[themeName].on)+ " ";
-}
-  console.log(onList);
-//  var key= Object.keys(themesList)[0]
-  
+  //add theme to example
+  $(".show-on").removeClass(onList).addClass(on);
+  $(".show-off").removeClass(offList).addClass(off);
+ 
+  //add theme to .game-area
+  $(".game-area").removeClass(gameBackgroundsList).addClass(gameBackground);
+   $("body").removeClass(textColors).addClass(textColor);
+   $("body").removeClass(bodyColors).addClass(bodyColor);
+   $("#help-text").removeClass(helpColors).addClass(helpColor);
+  $(".game-level").removeClass(gameLevelColors).addClass(gameLevelColor);
+  //remove themes from elements that have specific classes/ IDs for on/off, then add new themes so do not need to redraw
 
-drawGame(game); 
-/*for(var list = 0;list < Object.keys(themesList).length; list++){
-   onArray.push(themesList[Object.keys(themesList)[i].on));
- };*/
 
-  //themesList[key]);//Object.keys(themesList));
-  //Object.getOwnPropertyNames(themesList).on);
+};
+
+
+$(":radio").change(function() {
+  addTheme();
+  
 });
-
 //begin
 drawGame(0);
 //create random game
@@ -122,7 +196,7 @@ function toggleAround(clicked) {
      above.classList.toggle(off);
   }
 
-  var anyOn = $("div").hasClass(on);
+  var anyOn = $(".square").hasClass(on);//check if squares have on, example div will
   if (anyOn == false) {
     chooseNext();
   }
@@ -189,8 +263,6 @@ prime();
   document.getElementById("13").innerText = " ";
     });
   }
-//$(".square").not(".on").addClass(off);
- // $(".square").addClass(off);
    console.log(on);
 }
 
@@ -257,9 +329,10 @@ make it all jquery or javascript
 ids should start with letters. 
 ***make next a function (won) if won->show different confirm message. trigger this function on #Next click, rather than it having its own function. 
 ***light up animation on win. 
-
 -Add animation on click and toggle
--Add shadows, make pretty
+
+
+X-Add shadows, make pretty
 
 DONE- A random game. Push random numbers to array random number less than or equal to 25 long
 
