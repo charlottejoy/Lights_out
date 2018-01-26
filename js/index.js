@@ -43,8 +43,14 @@ valentines:{
 
 };
 
+var squaresArray=[];
+  $(".square").each(function(){
+   squaresArray.push("#" + this.id);
+  });
 
+var squaresArrayReverse = squaresArray.slice().reverse();//slice necessary so not to reverse in place
 
+//theme elements
 var on;
 var off;
 var gameBackground;
@@ -52,7 +58,7 @@ var textColor;
 var bodyColor;
 var helpColor;
 var gameLevelColor;
-
+//List of possible options-> may be able to simplify this, just need current theme values
 var onList="";
   for (var themeName in themesList) {
   onList+=(themesList[themeName].on)+ " ";
@@ -150,14 +156,14 @@ function addTheme(){
 
 };
 
-
+//add theme with selection
 $(":radio").change(function() {
   addTheme();
   
 });
+
 //begin
 drawGame(0);
-//create random game
 
 
 //toggle lights
@@ -198,7 +204,9 @@ function toggleAround(clicked) {
 
   var anyOn = $(".square").hasClass(on);//check if squares have on, example div will
   if (anyOn == false) {
-    chooseNext();
+   showWin(); 
+  // setTimeout(showWin, 750);
+     //chooseNext();
   }
   
 }
@@ -272,7 +280,7 @@ $(".square").click(function() {
   toggleAround(clickedSquare);
 });
 
-
+//create random game
 function randomGame() {
 prime();
   document.getElementById("game-name").innerText = "Random Game";
@@ -321,7 +329,97 @@ $("#close").click(function() {
   $("#help-text").slideUp();
 });
 
+//winning animations
+//onOff("#1");
+function Bye(cell){
+  $(cell).fadeOut();
+}
+function Hi(cell){
+  $(cell).fadeIn();
+}
+function cellChange(cell,animateClass){
+  $(cell).toggleClass(animateClass);
+}
 
+
+function showWin(){
+  var time=150;
+  squaresArray.forEach(function(square){
+    setTimeout(function(){
+      Bye(square);
+               }, time);
+    time+=75;
+  })
+   squaresArrayReverse.forEach(function(square){
+    setTimeout(function(){
+      Hi(square);
+               }, time);
+    time+=75;
+  })
+  /*
+   squaresArray.forEach(function(square){
+    setTimeout(function(){
+     cellChange(square)
+               }, time);
+    time+=50;
+  })*/
+ //  $(".square").toggleClass(on, time).toggleClass(off, time+100);
+ /*   (square).fadeOut(time);
+    time+=250;
+  });*/
+ /* setTimeout(function(){
+    $(".square").addClass(on);
+  }, time);
+  
+  time+=50;*/
+  squaresArray.forEach(function(square, animateClass){
+   setTimeout(function(){
+     cellChange(square,gameLevelColor);
+   }, time) ;
+    time+=25;
+    
+  });
+  
+   squaresArray.forEach(function(square, animateClass){
+   setTimeout(function(){
+     cellChange(square,gameLevelColor);
+   }, time) ;
+    time+=25;
+  })
+  
+  time+=75;
+   setTimeout(function(){
+      cellChange($(".square"),gameLevelColor);
+   }, time) ;
+  
+    time+=250;
+  
+   setTimeout(function(){
+      cellChange($(".square"),gameLevelColor);
+   }, time) ;
+    time+=75;
+  
+   time+=75;
+   setTimeout(function(){
+      cellChange($(".square"),gameLevelColor);
+   }, time) ;
+  
+    time+=250;
+  
+   setTimeout(function(){
+      cellChange($(".square"),gameLevelColor);
+   }, time) ;
+    time+=75;
+   /* squaresArray.forEach(function(square, off){
+   setTimeout(function(){
+     cellChange(square, off);
+   }, time) ;
+    time+=75;
+  })*/
+
+  time+=750;
+  setTimeout(chooseNext, time)
+}
 //Missing NICE TO HAVES
 /*
 -theme
