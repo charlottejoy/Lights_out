@@ -6,35 +6,35 @@ var totalGames = 12;
 
 
 var gamesList={
-     0:"#8,#12, #13, #14, #18 ",
-     1:"#3, #11, #15, #17, #18, #19",
-     2:"#8, #11, #15, #19, #23 ",
-     3:"#4, #9, #10, #11, #15, #20, #22",
-     4:"#3, #5, #6, #13, #20, #21, #23",
-     5:"#2, #4, #5, #6, #12, #14, #20, #21, #22, #24",
-     6:"#1,#7,#10,#11,#13,#14,#17,#21,#22,#25",
-     7:"#3, #4, #6, #7, #8, #9, #14, #16, #18, #22, #25",
-     8:"#2, #3, #5, #10, #12, #13, #15, #16, #18, #19, #22, #25",
-     9:"#1, #5, #9, #11, #15, #13, #14, #15, #19, #22, #23, #25",
-     10:"#3, #4, #6, #7, #9, #10, #12, #13, #15, #16, #20, #21",
-     11:"#1, #3, #5, #7, #9, #16, #19, #22, #23, #25",
-     12:"#18, #22, #24",
+     0:"#s8,#s12, #s13, #s14, #s18 ",
+     1:"#s3, #s11, #s15, #s17, #s18, #s19",
+     2:"#s8, #s11, #s15, #s19, #s23 ",
+     3:"#s4, #s9, #s10, #s11, #s15, #s20, #s22",
+     4:"#s3, #s5, #s6, #s13, #s20, #s21, #s23",
+     5:"#s2, #s4, #s5, #s6, #s12, #s14, #s20, #s21, #s22, #s24",
+     6:"#s1,#s7,#s10,#s11,#s13,#s14,#s17,#s21,#s22,#s25",
+     7:"#s3, #s4, #s6, #s7, #s8, #s9, #s14, #s16, #s18, #s22, #s25",
+     8:"#s2, #s3, #s5, #s10, #s12, #s13, #s15, #s16, #s18, #s19, #s22, #s25",
+     9:"#s1, #s5, #s9, #s11, #s15, #s13, #s14, #s15, #s19, #s22, #s23, #s25",
+     10:"#s3, #s4, #s6, #s7, #s9, #s10, #s12, #s13, #s15, #s16, #s20, #s21",
+     11:"#s1, #s3, #s5, #s7, #s9, #s16, #s19, #s22, #s23, #s25",
+     12:"#s18, #s22, #s24",
 };
 
 var themesList = {//theme name and classes to be used for elements
 valentines:{
-  on: "blue",
-  off:"pink",
-  gameBackground:"light-blue", //.game-area
-  gameLevelColor:"pink",//.game-level
-  textColor: "black-text",
- helpColor:"pink",//#help-text
-  bodyColor: "white",//body
+  on: "v-on",
+  off:"v-off",
+  gameBackground:"v-game", //.game-area
+  gameLevelColor:"v-level",//.game-level
+  textColor: "v-text",
+ helpColor:"v-help",//#help-text
+  bodyColor: "v-background",//body
 },
   regular:{
    on: "on",
     off:"off",
-  gameBackground:".game-background",
+  gameBackground:"game-background",
          gameLevelColor:"game-level-color",
      textColor: "black-text",
  helpColor:"background",//#help-text
@@ -79,9 +79,9 @@ var gameBackgrounds=gameBackgroundsList;
 
 var textColorsList="";
   for (var themeName in themesList) {
-  onList+=(themesList[themeName].textColor)+ " ";
+  textColorsList+=(themesList[themeName].textColor)+ " ";
 }
-var textColors=onList;
+var textColors=textColorsList;
 
 var bodyColorList="";
   for (var themeName in themesList) {
@@ -146,13 +146,12 @@ function addTheme(){
   $(".show-off").removeClass(offList).addClass(off);
  
   //add theme to .game-area
-  $(".game-area").removeClass(gameBackgroundsList).addClass(gameBackground);
-   $("body").removeClass(textColors).addClass(textColor);
+  $(".game-area").removeClass(gameBackgrounds).addClass(gameBackground);
+   $("body,.square, .game-choices").removeClass(textColors).addClass(textColor);
    $("body").removeClass(bodyColors).addClass(bodyColor);
    $("#help-text").removeClass(helpColors).addClass(helpColor);
   $(".game-level").removeClass(gameLevelColors).addClass(gameLevelColor);
   //remove themes from elements that have specific classes/ IDs for on/off, then add new themes so do not need to redraw
-
 
 };
 
@@ -168,36 +167,38 @@ drawGame(0);
 
 //toggle lights
 function toggleAround(clicked) {
+  
   var numClick = parseInt(clicked); // if this is not converted to a number, we get bad math (5+3=53)
 
-  var center = document.getElementById(numClick);
+  var center = document.getElementById("s" + numClick);
   center.classList.toggle(on);
     center.classList.toggle(off);
 
   if (numClick % size != 0 && numClick + 1 <= size * size) {
     //if not at end of row
-    var right = document.getElementById(numClick + 1);
+    console.log(numClick + 1);
+    var right = document.getElementById("s" + (numClick + 1));
     right.classList.toggle(on);
     right.classList.toggle(off);
   }
 
   if (numClick % size != 1 && numClick - 1 > 0) {
     //if not at beginning of row
-    var left = document.getElementById(numClick - 1);
+    var left = document.getElementById("s" + (numClick - 1));
     left.classList.toggle(on);
     left.classList.toggle(off);
   }
 
   if (numClick + size <= size * size) {
     //if not last row
-    var below = document.getElementById(numClick + size);
+    var below = document.getElementById("s" +( numClick + size));
     below.classList.toggle(on);
     below.classList.toggle(off);
   }
 
   if (numClick - size > 0) {
     //if not first row
-    var above = document.getElementById(numClick - size);
+    var above = document.getElementById("s"+ (numClick - size));
     above.classList.toggle(on);
      above.classList.toggle(off);
   }
@@ -254,29 +255,40 @@ function chooseNext() {
 
 //prime it
 function prime(){
-  $(".square").removeClass(ons).removeClass(offs).addClass(off);//prime it
+
+    $(".square").removeClass(ons).removeClass(offs).addClass(off);//prime it
   $(".square").removeClass("tutorial"); // turn all off in case
 }
 
 //make game depending on number
 function drawGame(game) {
-prime();
+   $(".square").fadeOut();
+//prime();
+   setTimeout(prime(), 250);
+  setTimeout(function(){
+
   document.getElementById("game-name").innerText = "Game " + game;
-  document.getElementById("13").innerText = " ";
+  document.getElementById("s13").innerText = " "; 
   $(gamesList[game]).addClass(on).removeClass(offs);//adds on to ids, off to others
  // alert("Moves needed" +gamesList[game].moves);
+      }, 450);
+   $(".square").fadeIn();
+  
   if(game==0){
-     document.getElementById("13").innerHTML = "<h1 id='pressed'>X</h1>";
+    setTimeout(function(){
+       document.getElementById("game-name").innerText = "Game 0 (Tutorial)";
+     document.getElementById("s13").innerHTML = "<h1 id='pressed'>&#x1D5EB;</h1>";
     $(".square").click(function(){
-  document.getElementById("13").innerText = " ";
+  document.getElementById("s13").innerText = " ";
     });
+    }, 500);
   }
-   console.log(on);
+   console.log(game);
 }
 
 //toggle lights
 $(".square").click(function() {
-  var clickedSquare = $(this).attr("id"); //onClick grab id and run through toggle function
+  var clickedSquare = $(this).attr("id").slice(1); //onClick grab id and run through toggle function
   toggleAround(clickedSquare);
 });
 
@@ -284,23 +296,22 @@ $(".square").click(function() {
 function randomGame() {
 prime();
   document.getElementById("game-name").innerText = "Random Game";
-  document.getElementById("13").innerText = " ";//clear tutorial "X"
+  document.getElementById("s13").innerText = " ";//clear tutorial "X"*/
   var randomLength = Math.floor(Math.random() * 25) + 1;
   var randomArray = [];
   var randomNumber;
   var i = 0;
   while (i < randomLength) {
     randomNumber = Math.floor(Math.random() * 25) + 1;
-    randomArray.push("#" + randomNumber/*.toString()*/);
+    randomArray.push("#s" + randomNumber/*.toString()*/);
     i++;
   }
-
   $(randomArray.join()).addClass(on).removeClass(off);// it's on or off
   game = -1;
   
 }
 
-
+console.log(gamesList.randomGameSquares);
 //choose level
 $(".game-number-buttons").click(function() {
   //or try data for html (data-number: 2)
@@ -341,20 +352,23 @@ function cellChange(cell,animateClass){
   $(cell).toggleClass(animateClass);
 }
 
-
+var onAnimate= on;
 function showWin(){
+  console.log("win"+onAnimate);
+   document.getElementById("game-name").innerText = "You won game " + game +"!";
+  //make game name= "You won!" drawGame puts back name
   var time=150;
   squaresArray.forEach(function(square){
     setTimeout(function(){
       Bye(square);
                }, time);
-    time+=75;
+    time+=50;
   })
    squaresArrayReverse.forEach(function(square){
     setTimeout(function(){
       Hi(square);
                }, time);
-    time+=75;
+    time+=50;
   })
   /*
    squaresArray.forEach(function(square){
@@ -372,6 +386,7 @@ function showWin(){
   }, time);
   
   time+=50;*/
+ for(var i=0; i<2; i++){
   squaresArray.forEach(function(square, animateClass){
    setTimeout(function(){
      cellChange(square,gameLevelColor);
@@ -379,45 +394,20 @@ function showWin(){
     time+=25;
     
   });
-  
-   squaresArray.forEach(function(square, animateClass){
-   setTimeout(function(){
-     cellChange(square,gameLevelColor);
-   }, time) ;
-    time+=25;
-  })
+ }
+
   
   time+=75;
+  
+  for(var i=0; i<6; i++){
    setTimeout(function(){
       cellChange($(".square"),gameLevelColor);
    }, time) ;
   
     time+=250;
+  }
   
-   setTimeout(function(){
-      cellChange($(".square"),gameLevelColor);
-   }, time) ;
-    time+=75;
-  
-   time+=75;
-   setTimeout(function(){
-      cellChange($(".square"),gameLevelColor);
-   }, time) ;
-  
-    time+=250;
-  
-   setTimeout(function(){
-      cellChange($(".square"),gameLevelColor);
-   }, time) ;
-    time+=75;
-   /* squaresArray.forEach(function(square, off){
-   setTimeout(function(){
-     cellChange(square, off);
-   }, time) ;
-    time+=75;
-  })*/
-
-  time+=750;
+  time+=250;
   setTimeout(chooseNext, time)
 }
 //Missing NICE TO HAVES
