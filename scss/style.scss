@@ -26,6 +26,12 @@ html {
   align-items: center;
 }
 
+  .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+  }
 
 .game-area {
   position: relative;
@@ -114,12 +120,19 @@ width: auto;
 .show-on, .show-off{
   width: 1em;
   height: 1em;
+  
+  /*border: .25vmin solid black;
+  box-sizing: border-box;*/
+}
+.explain-show{
    display: flex;
   align-items: center;
   justify-content: center;
   margin-right: .25em;
-  /*border: .25vmin solid black;
-  box-sizing: border-box;*/
+}
+.inline{
+  display:inline-block;
+ 
 }
 #arrow{
   width: auto;
@@ -154,11 +167,10 @@ Animation another time
   100%{
      box-shadow: .25vw .25vw .25vw white inset, -.25vw -.25vw .25vw white inset;
   }
-}
-.pressed{
-  background: linear-gradient(black, transparent);
-   box-shadow: .25vw .25vw 3vw .25vw inset, -.25vw -.25vw 3vw .25vw inset;
 }*/
+.tutorial:after{
+content: "X"
+}
 
 .game-numbers {
   cursor: pointer;
@@ -175,6 +187,7 @@ Animation another time
   top: 0;
   width: 80vw;
   height: 80vh;
+   line-height: 2em;
 }
 
 #help-text h1,
@@ -186,6 +199,12 @@ Animation another time
   text-align: right;
   font-weight: bold;
   cursor: pointer;
+}
+
+#close:hover{
+  text-decoration:underline;
+  text-decoration-skip-ink: auto;
+  text-decoration-style: double;
 }
 //THEMES THEMES THEMES
  //ALT way opacity: 0; if there are cells below and the top cell has an image= fun theme. 
@@ -238,6 +257,7 @@ background: $on;
 .v-background{
    background:#FFE5E5;// pink;
 }
+
 /* Rules for sizing the icon. */
 .material-icons.md-18 {
   font-size: 18px;
@@ -279,10 +299,16 @@ background: $on;
   body,
   html {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     
+  }
+  .content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
   }
   .game-area {
     border: none;
@@ -300,6 +326,9 @@ background: $on;
     padding: 2%;
     box-sizing: border-box;
   }
+  .game-level{
+      font-size: 1.25em;
+  }
   .example{
      padding: 0 .5em;
   }
@@ -310,7 +339,7 @@ background: $on;
 }
 
 
-@media (max-width: 400px), (max-height: 400px) {
+@media (max-width: 400px), (max-height: 500px) {
   body, html{
      font-size: 18px;
   }
@@ -334,11 +363,10 @@ background: $on;
   padding: 0;
  
 }
-
   
 }
 
-@media (max-width: 250px), (max-height: 250px) {
+@media (max-width: 300px), (max-height: 300px) {
   //how does dp work?
    body, html{
      font-size: 16px;
@@ -352,5 +380,9 @@ background: $on;
   .example{
     justify-content: space-around;
   } 
+ 
+ .title{
+    display:none;
+  }
 }
 

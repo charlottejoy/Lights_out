@@ -253,36 +253,40 @@ function chooseNext() {
   }
 }
 
-//prime it
-function prime(){
-
-    $(".square").removeClass(ons).removeClass(offs).addClass(off);//prime it
-  $(".square").removeClass("tutorial"); // turn all off in case
-}
-
+  // $(".square").fadeOut();
 //make game depending on number
 function drawGame(game) {
-   $(".square").fadeOut();
+   $(".square").fadeOut(100).delay(200).fadeIn();
 //prime();
-   setTimeout(prime(), 250);
+//  setTimeout(prime(), 150);//remove classes , add back on
+  
+  
+  // if(game!==0) need to correct so no double drawing on 0
+   if(game!==0) {
   setTimeout(function(){
 
   document.getElementById("game-name").innerText = "Game " + game;
-  document.getElementById("s13").innerText = " "; 
-  $(gamesList[game]).addClass(on).removeClass(offs);//adds on to ids, off to others
- // alert("Moves needed" +gamesList[game].moves);
-      }, 450);
-   $(".square").fadeIn();
+  $("#s13").removeClass("tutorial");
+  }, 150);
+   }
   
   if(game==0){
     setTimeout(function(){
        document.getElementById("game-name").innerText = "Game 0 (Tutorial)";
-     document.getElementById("s13").innerHTML = "<h1 id='pressed'>&#x1D5EB;</h1>";
+   $("#s13").addClass("tutorial");//innerHTML = "<p id='pressed'>&#x1D5EB;</p>";
     $(".square").click(function(){
-  document.getElementById("s13").innerText = " ";
+  //document.getElementById("s13").innerText = " ";
+       $("#s13").removeClass("tutorial");
     });
-    }, 500);
+    }, 150);
   }
+   setTimeout(function(){
+      $(".square").removeClass(ons).removeClass(offs).addClass(off);
+    $(gamesList[game]).addClass(on).removeClass(offs);//adds on to ids, off to others
+ // alert("Moves needed" +gamesList[game].moves);
+     }, 150);
+  
+    
    console.log(game);
 }
 
@@ -294,9 +298,9 @@ $(".square").click(function() {
 
 //create random game
 function randomGame() {
-prime();
+   $(".square").fadeOut(100).delay(200).fadeIn();
   document.getElementById("game-name").innerText = "Random Game";
-  document.getElementById("s13").innerText = " ";//clear tutorial "X"*/
+  
   var randomLength = Math.floor(Math.random() * 25) + 1;
   var randomArray = [];
   var randomNumber;
@@ -306,7 +310,13 @@ prime();
     randomArray.push("#s" + randomNumber/*.toString()*/);
     i++;
   }
-  $(randomArray.join()).addClass(on).removeClass(off);// it's on or off
+ // $(randomArray.join()).addClass(on).removeClass(off);// it's on or off
+   setTimeout(function(){
+      $(".square").removeClass(ons).removeClass(offs).addClass(off);
+    $(randomArray.join()).addClass(on).removeClass(offs);//adds on to ids, off to others
+ // alert("Moves needed" +gamesList[game].moves);
+      $("#s13").removeClass("tutorial");//clear tutorial "X"*/
+     }, 150);
   game = -1;
   
 }
