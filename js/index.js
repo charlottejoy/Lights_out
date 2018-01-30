@@ -40,8 +40,27 @@ valentines:{
  helpColor:"background",//#help-text
   bodyColor: "background",//body
 },
-
+startrek:{
+    on: "on",
+    off:"off",
+  gameBackground:"game-background",
+         gameLevelColor:"game-level-color",
+     textColor: "black-text",
+ helpColor:"background",//#help-text
+  bodyColor: "background",//body 
+}
 };
+
+//Default theme according to dates
+/*
+var currentTime = new Date();
+var currentDate = currentTime.getDate();
+console.log(currentTime);
+
+$("#regular-theme").prop("checked",true);
+//choose theme
+var theme=($('input:radio:checked').val());
+
 
 var squaresArray=[];
   $(".square").each(function(){
@@ -101,8 +120,7 @@ var gameLevelColorList="";
 }
 var gameLevelColors=onList;
 
-//choose theme
-var theme=($('input:radio:checked').val());
+
 
 //make theme object on, off attributes, colours
 //remove class can be array except for selected class
@@ -428,12 +446,8 @@ ids should start with letters.
 ***make next a function (won) if won->show different confirm message. trigger this function on #Next click, rather than it having its own function. 
 ***light up animation on win. 
 -Add animation on click and toggle
-
-
 X-Add shadows, make pretty
-
 DONE- A random game. Push random numbers to array random number less than or equal to 25 long
-
 -Show number of moves done over min number of moves needed. If this, option to turn this off "relaxed"
 - count moves against least number of moves required->points
 DONE- nicer to find a way to attach least moves and other info to a game - object
