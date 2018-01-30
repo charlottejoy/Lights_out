@@ -52,13 +52,25 @@ startrek:{
 };
 
 //Default theme according to dates
-/*
+function checkWithDates(){
 var currentTime = new Date();
 var currentDate = currentTime.getDate();
-console.log(currentTime);
+var currentMonth = currentTime.getMonth();
 
+if(currentMonth==1){
+  if(currentDate>0 && currentDate<15){
+    $("#valentines-theme").prop("checked",true);
+  }
+}
+else if (currentDate%2==1){
+  $("#star-trek-theme").prop("checked", true);
+}
+else{
 $("#regular-theme").prop("checked",true);
+}
+}
 //choose theme
+checkWithDates();
 var theme=($('input:radio:checked').val());
 
 
