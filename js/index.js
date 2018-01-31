@@ -40,14 +40,32 @@ valentines:{
  helpColor:"background",//#help-text
   bodyColor: "background",//body
 },
-startrek:{
-    on: "on",
-    off:"off",
-  gameBackground:"game-background",
-         gameLevelColor:"game-level-color",
-     textColor: "black-text",
- helpColor:"background",//#help-text
-  bodyColor: "background",//body 
+starTrek:{
+    on: "on--star-trek",
+    off:"off--star-trek",
+  gameBackground:"background--star-trek",
+         gameLevelColor:"game-level--star-trek",
+     textColor: "text--star-trek",
+ helpColor:"help--star-trek",//#help-text
+  bodyColor: "background--star-trek",//body 
+},
+  halloween:{
+      on: "on--halloween",
+    off:"off--halloween",
+       bodyColor: "background--halloween",//body 
+  gameBackground:"game-area--halloween",
+         gameLevelColor:"game-level--halloween",
+     textColor: "text--halloween",
+ helpColor:"background--halloween",//#help-text 
+},
+   christmas:{
+      on: "on--christmas",
+    off:"off--christmas",
+       bodyColor: "background--christmas",//body 
+  gameBackground:"game-area--christmas",
+         gameLevelColor:"game-level--christmas",
+     textColor: "text--christmas",
+ helpColor:"background--christmas",//#help-text 
 }
 };
 
@@ -62,8 +80,17 @@ if(currentMonth==1){
     $("#valentines-theme").prop("checked",true);
   }
 }
-else if (currentDate%2==1){
+else if(currentMonth==9){
+    if (currentDate >25){
+      $("#halloween-theme").prop("checked", true); 
+    }
+  }
+  else if (currentDate%2==1){
   $("#star-trek-theme").prop("checked", true);
+}
+ else if (currentMonth==11){
+   if(currentDate>14)
+  $("#christmas-theme").prop("checked", true);
 }
 else{
 $("#regular-theme").prop("checked",true);

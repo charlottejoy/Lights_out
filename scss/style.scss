@@ -181,18 +181,20 @@ width: auto;
 display: flex;
   flex-flow: row wrap;
   justify-content: center;
-    align-items: center;
+   align-items: baseline;
+   // align-items: center;
+  color: black;
   //align-content: center;
- // background: white;
+  background: white;
    position: relative;
  width: auto;
- 
+ margin-top: .25em;
 }
 
 label{
    width: 1em;
   height: 1em;
-   padding: .5em;
+   padding:.15em .25em;
 }
 
 input{
@@ -207,10 +209,13 @@ input:not( :checked) + #regular-label:hover{
   color: $on;
 }
 input:not( :checked) + #star-trek-label:hover{
-  color: $on;
+  color: #FF9900;
 }
 input:not( :checked) + #halloween-label:hover{
-  background: $on;
+  background: black;
+}
+input:not( :checked) + #christmas-label:hover{
+  background: black;
 }
 //THEMES THEMES THEMES
  //ALT way opacity: 0; if there are cells below and the top cell has an image= fun theme. 
@@ -234,6 +239,71 @@ background: $on;
 .black-text{
   color: black
 }
+//CHRISTMAS THEME 
+.on--christmas{
+  background: #145F4A;
+  border-radius: 50%;
+}
+.off--christmas{
+  background: #D21625;
+   border-radius: 50%;
+}
+.background--christmas{
+   background: #D7D3C8;
+}
+.game-area--christmas{}
+.game-level--christmas{
+  background: #D99703;
+ 
+}
+.text--christmas{}
+
+//STAR TREK
+.on--star-trek{
+  
+  background: #CC6666;
+  //background: #FF9966;
+   border-radius: 30%;
+}
+.off--star-trek{
+    background: #9999FF;
+ // background: #CC99CC;
+    border-radius: 30%;
+}
+.background--star-trek{
+  background: #000000;
+}
+.game-area--star-trek{}
+.game-level--star-trek{
+  border-radius: 30%;
+  background: #FF9900;
+  color:black;
+}
+.text--star-trek{
+  color: #ffffff;
+}
+.help--star-trek{
+  background: black;
+}
+
+//HALLOWEEN
+.on--halloween{
+  background: #a73ae7; 
+}
+.off--halloween{    
+  background: #ff7b0f;
+}
+.background--halloween{	
+background: #000000;
+}
+.game-level--halloween{ 
+background: #f93636;
+}
+.text--halloween{
+  color: white;
+}
+
+
 
 //Valentines THEME
 .v-on{

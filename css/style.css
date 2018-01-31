@@ -158,15 +158,18 @@ html {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
+  color: black;
+  background: white;
   position: relative;
   width: auto;
+  margin-top: .25em;
 }
 
 label {
   width: 1em;
   height: 1em;
-  padding: .5em;
+  padding: .15em .25em;
 }
 
 input {
@@ -182,11 +185,15 @@ input:not(:checked) + #regular-label:hover {
 }
 
 input:not(:checked) + #star-trek-label:hover {
-  color: #00B0FF;
+  color: #FF9900;
 }
 
 input:not(:checked) + #halloween-label:hover {
-  background: #00B0FF;
+  background: black;
+}
+
+input:not(:checked) + #christmas-label:hover {
+  background: black;
 }
 
 .on {
@@ -207,6 +214,72 @@ input:not(:checked) + #halloween-label:hover {
 
 .black-text {
   color: black;
+}
+
+.on--christmas {
+  background: #145F4A;
+  border-radius: 50%;
+}
+
+.off--christmas {
+  background: #D21625;
+  border-radius: 50%;
+}
+
+.background--christmas {
+  background: #D7D3C8;
+}
+
+.game-level--christmas {
+  background: #D99703;
+}
+
+.on--star-trek {
+  background: #CC6666;
+  border-radius: 30%;
+}
+
+.off--star-trek {
+  background: #9999FF;
+  border-radius: 30%;
+}
+
+.background--star-trek {
+  background: #000000;
+}
+
+.game-level--star-trek {
+  border-radius: 30%;
+  background: #FF9900;
+  color: black;
+}
+
+.text--star-trek {
+  color: #ffffff;
+}
+
+.help--star-trek {
+  background: black;
+}
+
+.on--halloween {
+  background: #a73ae7;
+}
+
+.off--halloween {
+  background: #ff7b0f;
+}
+
+.background--halloween {
+  background: #000000;
+}
+
+.game-level--halloween {
+  background: #f93636;
+}
+
+.text--halloween {
+  color: white;
 }
 
 .v-on {
