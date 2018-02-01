@@ -6,7 +6,9 @@
   <title>Lights out</title>
   
   
-  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Share+Tech+Mono|Great+Vibes|Mountains+of+Christmas'>
+
       <link rel="stylesheet" href="css/style.css">
 
   
@@ -14,16 +16,9 @@
 
 <body>
 
-  
-<html><head>
-  <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono|Rubik+Mono+One" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body>
     <h1 class="title"> Lights Out</h1>
-<div class="content">
-         <div class="game-area">
+  <div class="content">
+    <div class="game-area">
 
       <div class="row r1">
         <div class="square" id="s1">
@@ -32,24 +27,24 @@
         </div>
         <div class="square " id="s3">
         </div>
-         <div class="square" id="s4">
+        <div class="square" id="s4">
         </div>
-         <div class="square" id="s5">
+        <div class="square" id="s5">
         </div>
       </div>
-       <div class="row r2">
+      <div class="row r2">
         <div class="square" id="s6">
         </div>
         <div class="square" id="s7">
         </div>
         <div class="square" id="s8">
         </div>
-         <div class="square" id="s9">
+        <div class="square" id="s9">
         </div>
-         <div class="square" id="s10">
+        <div class="square" id="s10">
+        </div>
       </div>
-      </div>
-       <div class="row r3">
+      <div class="row r3">
         <div class="square" id="s11">
         </div>
         <div class="square on" id="s12">
@@ -57,99 +52,103 @@
         <div class="square on" id="s13">
 
         </div>
-         <div class="square on" id="s14">
+        <div class="square on" id="s14">
         </div>
-         <div class="square" id="s15">
+        <div class="square" id="s15">
         </div>
       </div>
-         <div class="row r4">
+      <div class="row r4">
         <div class="square" id="s16">
         </div>
         <div class="square" id="s17">
         </div>
         <div class="square on" id="s18">
         </div>
-         <div class="square" id="s19">
+        <div class="square" id="s19">
         </div>
-         <div class="square" id="s20">
+        <div class="square" id="s20">
         </div>
       </div>
-         <div class="row r5">
+      <div class="row r5">
         <div class="square" id="s21">
         </div>
         <div class="square" id="s22">
         </div>
         <div class="square" id="s23">
         </div>
-         <div class="square" id="s24">
+        <div class="square" id="s24">
         </div>
-         <div class="square" id="s25">
+        <div class="square" id="s25">
         </div>
       </div>
+    </div>
+    <div class="game-choices">
+
+      <div id="game-name">
+        <h1></h1>
       </div>
-        <div class="game-choices">
+      <!--<p id="least-moves">1</p>-->
+      <div class="game-numbers">
+        <div class="game-level" id="next"><i class="fa fa-step-forward" aria-hidden="true"></i></div>
+        <div class="game-level game-number-buttons" id="g1">1</div>
+        <div class="game-level game-number-buttons" id="g2">2</div>
+        <div class="game-level  game-number-buttons" id="g3">3</div>
+        <div class="game-level game-number-buttons" id="g4">4</div>
+        <div class="game-level game-number-buttons" id="g5">5</div>
+        <div class="game-level game-number-buttons" id="g6">6</div>
+        <div class="game-level game-number-buttons" id="g7">7</div>
+        <div class="game-level game-number-buttons" id="g8">8</div>
+        <div class="game-level game-number-buttons" id="g9">9</div>
+        <div class="game-level game-number-buttons" id="g10">10</div>
+        <div class="game-level game-number-buttons" id="g11">11</div>
+        <div class="game-level game-number-buttons" id="g12">12</div>
+        <div class="game-level" id="random">Random</div>
+        <div class="game-level" id="help">
+          <!--help--><i class="fa fa-question-circle" aria-hidden="true"></i></div>
+      </div>
+      <div class="example">
 
-        <div id="game-name"><h1></h1></div>
-    <!--<p id="least-moves">1</p>-->
-    <div class="game-numbers">
-    <div class="game-level" id="next"><i class="fa fa-step-forward" aria-hidden="true"></i></div>
-    <div class="game-level game-number-buttons" id="g1">1</div>
-    <div class="game-level game-number-buttons" id="g2">2</div>
-    <div class="game-level  game-number-buttons" id="g3">3</div>
-    <div class="game-level game-number-buttons" id="g4">4</div>
-    <div class="game-level game-number-buttons" id="g5">5</div>
-    <div class="game-level game-number-buttons" id="g6">6</div>
-    <div class="game-level game-number-buttons" id="g7">7</div>
-    <div class="game-level game-number-buttons" id="g8">8</div>
-    <div class="game-level game-number-buttons" id="g9">9</div>
-    <div class="game-level game-number-buttons" id="g10">10</div>
-    <div class="game-level game-number-buttons" id="g11">11</div>
-    <div class="game-level game-number-buttons" id="g12">12</div>
-    <div class="game-level" id="random">Random</div>
-    <div class="game-level" id="help"><!--help--><i class="fa fa-question-circle" aria-hidden="true"></i></div>
-    </div>
-        <div class="example">
-
-
-           <div class="on-icon">  <div class="show-on explain-show"> </div><i class="fa fa-thumbs-o-down" aria-hidden="true"></i><!--&#x1D5EB;--></div>
-          <div id="arrow">► ►</div>
-
-          <div class="off-icon">  <div class="show-off explain-show"></div><!--&#x2714;--><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></div>
-          </div>
-        
-        <div class="theme">
-         <!-- <p> <i class="fa fa-eye" aria-hidden="true"></i> :</p>-->
-         
-           <input type="radio" name="theme" value="regular" id="regular-theme"  >
-          <label for="regular-theme" id="regular-label"><i class="fa fa-hashtag " aria-hidden="true"></i></label>
-           <input type="radio" name="theme" value="starTrek" id="star-trek-theme"  >
-          <label for="star-trek-theme" id="star-trek-label"> <i class="fa fa-hand-spock-o" aria-hidden="true"></i></label>
-           <input type="radio" name="theme" value="valentines" id="valentines-theme" ><label for="valentines-theme" id="valentines-label" ><i class="fa fa-heart" aria-hidden="true"></i></label>
-          
-         <input type="radio" name="theme" value="halloween" id="halloween-theme"  >  <label for="halloween-theme" id="halloween-label">&#x1f383;</label>
-          <input type="radio" name="theme" value="christmas" id="christmas-theme"><label for="christmas-theme" id = "christmas-label">	&#x1f384;</label>
+        <div class="on-icon">
+          <div class="show-on explain-show"> </div><i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+          <!--&#x1D5EB;-->
         </div>
+        <div id="arrow">► ►</div>
 
-        </div>
+        <div class="off-icon">
+          <div class="show-off explain-show"></div>
+          <!--&#x2714;--><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></div>
+      </div>
+
+      <div class="theme">
+        <!-- <p> <i class="fa fa-eye" aria-hidden="true"></i> :</p>-->
+
+        <input type="radio" name="theme" value="regular" id="regular-theme">
+        <label for="regular-theme" id="regular-label"><i class="fa fa-star " aria-hidden="true"></i></label>
+        <input type="radio" name="theme" value="starTrek" id="star-trek-theme">
+        <label for="star-trek-theme" id="star-trek-label"> <i class="fa fa-hand-spock-o" aria-hidden="true"></i></label>
+        <input type="radio" name="theme" value="valentines" id="valentines-theme"><label for="valentines-theme" id="valentines-label"><i class="fa fa-heart" aria-hidden="true"></i></label>
+
+        <!--<input type="radio" name="theme" value="halloween" id="halloween-theme"  >  <label for="halloween-theme" id="halloween-label">&#x1f383;</label>-->
+        <input type="radio" name="theme" value="christmas" id="christmas-theme"><label for="christmas-theme" id="christmas-label">	<i class="fa fa-gift" aria-hidden="true"></i><!--&#x1f384;--></label>
+      </div>
+
     </div>
+  </div>
 
+  <div id="help-text">
 
-<div id="help-text">
+    <h1> How you're going to play.</h1>
+    <p id="help-description">This is a demo of the classic "Lights Out" game. The goal is to get all of the lights off.<br> Click a square. It will toggle <span class="show-on inline"></span>on and <span class="show-off inline"></span>off. So will its neighbours! Toggle all of
+      the squares off and you win!
+    </p>
+    <p id="close"> <i class="fa fa-window-close" aria-hidden="true"></i></p>
+    <!--<p id='close'>Close</p>-->
 
-  <h1> How you're going to play.</h1>
-  <p id= "help-description">This is a demo of the classic "Lights Out" game. The goal is to get all of the lights off.<br> Click a square. It will toggle <span class="show-on inline"></span>on and <span class="show-off inline"></span>off. So will its neighbours! Toggle all of the squares off and you win! 
-  </p>
-  <p id="close"> <i class="fa fa-window-close" aria-hidden="true" ></i></p>
-  <!--<p id='close'>Close</p>-->
- 
-</div>
+  </div>
 
-
-<noscript>Your browser does not support JavaScript :-/
+  <noscript>Your browser does not support JavaScript :-/
   <br>
   You'll need to enable it, or switch browsers to one that has it enabled if you want to play Lights Out. </noscript>
-  </body>
-</html>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
   

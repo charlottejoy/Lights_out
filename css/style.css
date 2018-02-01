@@ -67,7 +67,10 @@ html {
 }
 
 @keyframes pulse {
-  0%,10%, 90%, 100% {
+  0%,
+  10%,
+  90%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -75,7 +78,10 @@ html {
   }
 }
 @-webkit-keyframes pulse {
-  0%,10%, 90%, 100% {
+  0%,
+  10%,
+  90%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -85,7 +91,7 @@ html {
 .game-choices {
   height: 30vh;
   width: 100vw;
-  padding: .5em 2em;
+  padding: 0.5em 2em;
   box-sizing: border-box;
   text-align: center;
   font-weight: bold;
@@ -99,14 +105,14 @@ html {
   flex-flow: row wrap;
   justify-content: center;
   align-content: space-around;
-  font-size: .75em;
+  font-size: 0.75em;
 }
 
 .game-level {
   width: 22%;
   margin-right: 1.5%;
   margin-left: 1.5%;
-  margin-bottom: .75vh;
+  margin-bottom: 0.75vh;
   display: flex;
   align-content: center;
   justify-content: space-around;
@@ -127,14 +133,16 @@ html {
   padding: 0 1%;
 }
 
-.on-icon, .off-icon {
+.on-icon,
+.off-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   width: auto;
 }
 
-.show-on, .show-off {
+.show-on,
+.show-off {
   width: 1em;
   height: 1em;
   /*border: .25vmin solid black;
@@ -145,102 +153,129 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: .25em;
+  margin-right: 0.25em;
 }
 
 #arrow {
   width: auto;
-  margin-left: .5em;
-  margin-right: .5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .theme {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: baseline;
-  color: black;
-  background: white;
+  align-content: center;
+  align-items: center;
   position: relative;
   width: auto;
-  margin-top: .25em;
+  margin-top: 0.25em;
 }
 
 label {
   width: 1em;
   height: 1em;
-  padding: .15em .25em;
+  padding: 0.15em 0.25em;
 }
 
 input {
   display: none;
 }
 
+#christmas-label {
+  font-size: 1.15em;
+}
+
 input:not(:checked) + #valentines-label:hover {
-  color: #FFB0B0;
+  color: #ffb0b0;
 }
 
 input:not(:checked) + #regular-label:hover {
-  color: #00B0FF;
+  color: #00b0ff;
 }
 
 input:not(:checked) + #star-trek-label:hover {
-  color: #FF9900;
+  color: #ff9900;
 }
 
 input:not(:checked) + #halloween-label:hover {
-  background: black;
+  -webkit-filter: hue-rotate(270deg);
+  /* Safari 6.0 - 9.0 */
+  filter: hue-rotate(270deg);
 }
 
 input:not(:checked) + #christmas-label:hover {
-  background: black;
+  color: #d21625;
 }
 
-.on {
-  background: #00B0FF;
+.on--regular {
+  background: #00b0ff;
 }
 
-.off {
+.off--regular {
   background: white;
 }
 
-.background {
-  background: #FF5252;
+.background--regular {
+  background: #ff5252;
 }
 
-.game-level-color {
-  background: #1DE9B6;
+.game-level--regular {
+  background: #1de9b6;
 }
 
-.black-text {
+.text--regular {
   color: black;
 }
 
 .on--christmas {
-  background: #145F4A;
+  background: #145f4a;
   border-radius: 50%;
 }
 
 .off--christmas {
-  background: #D21625;
+  background: #d21625;
   border-radius: 50%;
 }
 
+.off--christmas:before {
+  font-family: FontAwesome;
+  content: "\f06b";
+  color: #d7d3c8;
+}
+
 .background--christmas {
-  background: #D7D3C8;
+  background: #d7d3c8;
+}
+
+.game-area--christmas {
+  color: black;
+  font-size: 1.75em;
+  margin-top: 0px;
 }
 
 .game-level--christmas {
-  background: #D99703;
+  background: #d99703;
+  color: black;
+  font-size: 1.25em;
+  font-family: "Share Tech Mono", monospace;
+}
+
+.text--christmas {
+  color: #d21625;
+  font-family: 'Mountains of Christmas', cursive;
+  margin: 0px;
+  font-size: .9em;
 }
 
 .on--star-trek {
-  background: #CC6666;
+  background: #cc6666;
   border-radius: 30%;
 }
 
 .off--star-trek {
-  background: #9999FF;
+  background: #9999ff;
   border-radius: 30%;
 }
 
@@ -250,7 +285,7 @@ input:not(:checked) + #christmas-label:hover {
 
 .game-level--star-trek {
   border-radius: 30%;
-  background: #FF9900;
+  background: #ff9900;
   color: black;
 }
 
@@ -262,54 +297,51 @@ input:not(:checked) + #christmas-label:hover {
   background: black;
 }
 
-.on--halloween {
-  background: #a73ae7;
+/*.on--halloween{
+  background: #a73ae7; 
 }
-
-.off--halloween {
+.off--halloween{    
   background: #ff7b0f;
 }
-
-.background--halloween {
-  background: #000000;
+.background--halloween{	
+background: #000000;
 }
-
-.game-level--halloween {
-  background: #f93636;
+.game-level--halloween{ 
+background: #f93636;
 }
-
-.text--halloween {
+.text--halloween{
   color: white;
 }
-
-.v-on {
-  background: #FF9696;
+*/
+.on--valentines {
+  background: #ff9696;
 }
 
-.v-off {
+.off--valentines {
   background: white;
 }
 
-.v-off:before {
+.off--valentines:before {
   font-family: FontAwesome;
   content: "\f004";
-  color: #FF9696;
+  color: #ff9696;
 }
 
-.v-level {
-  background: #FFB0B0;
+.game-level--valentines {
+  background: #ffb0b0;
 }
 
-.v-text {
+.text--valentines {
   color: #402525;
+  font-family: 'Great Vibes', cursive;
 }
 
-.v-help {
-  background: #FFE5E5;
+.help--valentines {
+  background: #ffe5e5;
 }
 
-.v-background {
-  background: #FFE5E5;
+.background--valentines {
+  background: #ffe5e5;
 }
 
 #help {
@@ -389,15 +421,17 @@ top: 30%;
   }
 
   .example {
-    padding: 0 .5em;
+    padding: 0 0.5em;
   }
 }
 @media (max-width: 400px), (max-height: 500px) {
-  body, html {
+  body,
+  html {
     font-size: 18px;
   }
 
-  .game-level, #random {
+  .game-level,
+  #random {
     padding: 1vmin 2vmin;
     margin: 1%;
     width: auto;
@@ -430,18 +464,21 @@ top: 30%;
     height: 50vmin;
   }
 
-  .game-level, #random {
+  .game-level,
+  #random {
     padding: 1vmin;
     margin: 1%;
     width: auto;
   }
 }
 @media (max-width: 300px), (max-height: 350px) {
-  body, html {
+  body,
+  html {
     font-size: 16px;
   }
 
-  .game-number-buttons, #arrow {
+  .game-number-buttons,
+  #arrow {
     display: none;
   }
 
