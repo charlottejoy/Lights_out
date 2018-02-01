@@ -20,15 +20,7 @@ var gamesList = {
 
 var themesList = {
   //theme name and classes to be used for elements
-  valentines: {
-    on: "on--valentines",
-    off: "off--valentines",
-    gameBackground: "game-area--valentines", //.game-area
-    gameLevelColor: "game-level--valentines", //.game-level
-    textColor: "text--valentines",
-    helpColor: "help--valentines", //#help-text
-    bodyColor: "background--valentines" //body
-  },
+ 
   regular: {
     on: "on--regular",
     off: "off--regular",
@@ -47,6 +39,15 @@ var themesList = {
     helpColor: "help--star-trek", //#help-text
     bodyColor: "background--star-trek" //body
   },
+  photo: {
+    on: "on--photo",
+    off: "off--photo",
+    gameBackground: "game-area--photo", //.game-area
+    gameLevelColor: "game-level--photo", //.game-level
+    textColor: "text--photo",
+    helpColor: "help--photo", //#help-text
+    bodyColor: "background--photo" //body
+},
   /* halloween:{
       on: "on--halloween",
     off:"off--halloween",
@@ -56,6 +57,15 @@ var themesList = {
      textColor: "text--halloween",
  helpColor:"background--halloween",//#help-text 
 },*/
+   valentines: {
+    on: "on--valentines",
+    off: "off--valentines",
+    gameBackground: "game-area--valentines", //.game-area
+    gameLevelColor: "game-level--valentines", //.game-level
+    textColor: "text--valentines",
+    helpColor: "help--valentines", //#help-text
+    bodyColor: "background--valentines" //body
+  },
   christmas: {
     on: "on--christmas",
     off: "off--christmas",
@@ -77,18 +87,25 @@ function checkWithDates() {
     if (currentDate > 0 && currentDate < 15) {
       $("#valentines-theme").prop("checked", true);
     }
-  } else if (currentDay == 2) {
-    /*else if(currentMonth==9){
+  }  else if (currentMonth == 11) {
+    if (currentDate > 14) $("#christmas-theme").prop("checked", true);
+  } 
+      else if (currentDay == 2) {
+  
+    $("#star-trek-theme").prop("checked", true);
+  }
+        else if (currentDay== 5) {
+          $("#theme--photo").prop("checked", true);
+        }
+          else {
+    $("#regular-theme").prop("checked", true);
+  }
+  
+   /*else if(currentMonth==9){
     if (currentDate >25){
       $("#halloween-theme").prop("checked", true); 
     }
   }*/
-    $("#star-trek-theme").prop("checked", true);
-  } else if (currentMonth == 11) {
-    if (currentDate > 14) $("#christmas-theme").prop("checked", true);
-  } else {
-    $("#regular-theme").prop("checked", true);
-  }
 }
 //choose theme
 checkWithDates();
@@ -191,13 +208,14 @@ function addTheme() {
     .addClass(off);
 
   //add theme to example
+ 
   $(".show-on")
     .removeClass(onList)
     .addClass(on);
   $(".show-off")
     .removeClass(offList)
     .addClass(off);
-
+  
   //add theme to .game-area
   $(".game-area")
     .removeClass(gameBackgrounds)

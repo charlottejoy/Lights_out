@@ -16,6 +16,10 @@ html {
   align-items: center;
 }
 
+/*h1{
+  margin-top: .1em;
+  margin-bottom: .1em;
+}*/
 .content {
   display: flex;
   flex-direction: column;
@@ -183,10 +187,6 @@ input {
   display: none;
 }
 
-#christmas-label {
-  font-size: 1.15em;
-}
-
 input:not(:checked) + #valentines-label:hover {
   color: #ffb0b0;
 }
@@ -199,12 +199,14 @@ input:not(:checked) + #star-trek-label:hover {
   color: #ff9900;
 }
 
-input:not(:checked) + #halloween-label:hover {
-  -webkit-filter: hue-rotate(270deg);
-  /* Safari 6.0 - 9.0 */
-  filter: hue-rotate(270deg);
+input:not(:checked) + #label--photo:hover {
+  color: #CFAC8C;
 }
 
+/*input:not(:checked) + #halloween-label:hover {
+  -webkit-filter: hue-rotate(270deg); 
+  filter: hue-rotate(270deg);
+}*/
 input:not(:checked) + #christmas-label:hover {
   color: #d21625;
 }
@@ -229,6 +231,36 @@ input:not(:checked) + #christmas-label:hover {
   color: black;
 }
 
+.on--photo {
+  background: #87643C;
+}
+
+.off--photo {
+  background: none;
+  border: black 2px solid;
+}
+
+.background--photo {
+  background: #F3EAE1;
+}
+
+.game-area--photo {
+  background-image: url(https://images.unsplash.com/photo-1479791261936-65db171c3cc5?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=1c686d4059a6fba50754288a24ac1af2);
+  background-size: 100%, 100%;
+}
+
+.game-level--photo {
+  background: #CFAC8C;
+}
+
+.text--photo {
+  color: #392B1E;
+}
+
+.help--photo {
+  background: #CFAC8C;
+}
+
 .on--christmas {
   background: #145f4a;
   border-radius: 50%;
@@ -251,14 +283,12 @@ input:not(:checked) + #christmas-label:hover {
 
 .game-area--christmas {
   color: black;
-  font-size: 1.75em;
   margin-top: 0px;
 }
 
 .game-level--christmas {
   background: #d99703;
   color: black;
-  font-size: 1.25em;
   font-family: "Share Tech Mono", monospace;
 }
 
@@ -266,7 +296,6 @@ input:not(:checked) + #christmas-label:hover {
   color: #d21625;
   font-family: 'Mountains of Christmas', cursive;
   margin: 0px;
-  font-size: .9em;
 }
 
 .on--star-trek {
@@ -386,7 +415,7 @@ background: #f93636;
   }
 }*/
 /*landscape*/
-@media (min-aspect-ratio: 1 / 1) {
+@media (min-aspect-ratio: 5 / 6) {
   body,
   html {
     display: flex;
