@@ -187,15 +187,15 @@ input {
   display: none;
 }
 
-input:not(:checked) + #valentines-label:hover {
+input:not(:checked) + #label--valentines:hover {
   color: #ffb0b0;
 }
 
-input:not(:checked) + #regular-label:hover {
+input:not(:checked) + #label--regular:hover {
   color: #00b0ff;
 }
 
-input:not(:checked) + #star-trek-label:hover {
+input:not(:checked) + #label--star-trek:hover {
   color: #ff9900;
 }
 
@@ -203,14 +203,14 @@ input:not(:checked) + #label--photo:hover {
   color: #CFAC8C;
 }
 
+input:not(:checked) + #label--christmas:hover {
+  color: #d21625;
+}
+
 /*input:not(:checked) + #halloween-label:hover {
   -webkit-filter: hue-rotate(270deg); 
   filter: hue-rotate(270deg);
 }*/
-input:not(:checked) + #christmas-label:hover {
-  color: #d21625;
-}
-
 .on--regular {
   background: #00b0ff;
 }
@@ -236,7 +236,6 @@ input:not(:checked) + #christmas-label:hover {
 }
 
 .off--photo {
-  background: none;
   border: black 2px solid;
 }
 
@@ -246,7 +245,7 @@ input:not(:checked) + #christmas-label:hover {
 
 .game-area--photo {
   background-image: url(https://images.unsplash.com/photo-1479791261936-65db171c3cc5?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=1c686d4059a6fba50754288a24ac1af2);
-  background-size: 100%, 100%;
+  background-size: cover;
 }
 
 .game-level--photo {
@@ -255,10 +254,16 @@ input:not(:checked) + #christmas-label:hover {
 
 .text--photo {
   color: #392B1E;
+  font-family: 'Great Vibes', cursive;
 }
 
 .help--photo {
   background: #CFAC8C;
+}
+
+.show-off.explain-show.off--photo, .show-off.inline.off--photo {
+  background-image: url(https://images.unsplash.com/photo-1479791261936-65db171c3cc5?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=1c686d4059a6fba50754288a24ac1af2);
+  background-size: contain;
 }
 
 .on--christmas {

@@ -76,7 +76,7 @@ var themesList = {
     helpColor: "background--christmas" //#help-text
   }
 };
-
+var oldTheme;
 //Default theme according to dates
 function checkWithDates() {
   var currentTime = new Date();
@@ -85,20 +85,20 @@ function checkWithDates() {
   var currentDay = currentTime.getDay();
   if (currentMonth == 1) {
     if (currentDate > 0 && currentDate < 15) {
-      $("#valentines-theme").prop("checked", true);
+      $("#theme--valentines").prop("checked", true);
     }
   }  else if (currentMonth == 11) {
-    if (currentDate > 14) $("#christmas-theme").prop("checked", true);
+    if (currentDate > 14) $("#theme--christmas").prop("checked", true);
   } 
       else if (currentDay == 2) {
   
-    $("#star-trek-theme").prop("checked", true);
+    $("#theme--star-trek").prop("checked", true);
   }
         else if (currentDay== 5) {
           $("#theme--photo").prop("checked", true);
         }
           else {
-    $("#regular-theme").prop("checked", true);
+    $("#theme--regular").prop("checked", true);
   }
   
    /*else if(currentMonth==9){
@@ -106,17 +106,14 @@ function checkWithDates() {
       $("#halloween-theme").prop("checked", true); 
     }
   }*/
+  oldTheme= $("input:radio:checked").val();// if we want  to remove it later
 }
 //choose theme
 checkWithDates();
+
 var theme = $("input:radio:checked").val();
 
-var squaresArray = [];
-$(".square").each(function() {
-  squaresArray.push("#" + this.id);
-});
 
-var squaresArrayReverse = squaresArray.slice().reverse(); //slice necessary so not to reverse in place
 
 //theme elements
 var on;
@@ -126,51 +123,6 @@ var textColor;
 var bodyColor;
 var helpColor;
 var gameLevelColor;
-//List of possible options-> may be able to simplify this, just need current theme values
-var onList = "";
-for (var themeName in themesList) {
-  onList += themesList[themeName].on + " ";
-}
-var ons = onList;
-
-var offList = "";
-for (var themeName in themesList) {
-  offList += themesList[themeName].off + " ";
-}
-var offs = offList;
-
-var gameBackgroundsList = "";
-for (var themeName in themesList) {
-  gameBackgroundsList += themesList[themeName].gameBackground + " ";
-}
-var gameBackgrounds = gameBackgroundsList;
-
-var textColorsList = "";
-for (var themeName in themesList) {
-  textColorsList += themesList[themeName].textColor + " ";
-}
-var textColors = textColorsList;
-
-var bodyColorList = "";
-for (var themeName in themesList) {
-  onList += themesList[themeName].bodyColor + " ";
-}
-var bodyColors = onList;
-
-var helpColorList = "";
-for (var themeName in themesList) {
-  onList += themesList[themeName].helpColor + " ";
-}
-var helpColors = onList;
-
-var gameLevelColorList = "";
-for (var themeName in themesList) {
-  onList += themesList[themeName].gameLevelColor + " ";
-}
-var gameLevelColors = onList;
-
-//make theme object on, off attributes, colours
-//remove class can be array except for selected class
 
 //make this onLoad
 addTheme();
@@ -189,6 +141,16 @@ function addTheme() {
   });
   var offSquares = offSquaresArray.join(", ");
 
+  //get old theme components
+  oldOn = themesList[oldTheme].on;
+  oldOff = themesList[oldTheme].off;
+  oldGameBackground = themesList[oldTheme].gameBackground;
+  oldTextColor = themesList[oldTheme].textColor;
+  oldBodyColor = themesList[oldTheme].bodyColor;
+  oldHelpColor = themesList[oldTheme].helpColor;
+  oldGameLevelColor = themesList[oldTheme].gameLevelColor;
+  
+  
   //get theme components
   theme = $("input:radio:checked").val();
   on = themesList[theme].on;
@@ -200,39 +162,43 @@ function addTheme() {
   gameLevelColor = themesList[theme].gameLevelColor;
 
   //add theme to game
+  
+  //remove themes from on/off, then add new themes so do not need to redraw
   $(onSquares)
-    .removeClass(onList)
+   .removeClass(oldOn)// .removeClass(onList)
     .addClass(on);
   $(offSquares)
-    .removeClass(offList)
+   .removeClass(oldOff)// .removeClass(offList)
     .addClass(off);
 
   //add theme to example
- 
-  $(".show-on")
-    .removeClass(onList)
+ $(".show-on")
+    .removeClass(oldOn)//onList)
     .addClass(on);
   $(".show-off")
-    .removeClass(offList)
+    .removeClass(oldOff)//offList)
     .addClass(off);
   
   //add theme to .game-area
   $(".game-area")
-    .removeClass(gameBackgrounds)
+    .removeClass(oldGameBackground)//gameBackgrounds)
     .addClass(gameBackground);
   $("body,.square, .game-choices")
-    .removeClass(textColors)
+    .removeClass(oldTextColor)//textColors)
     .addClass(textColor);
   $("body")
-    .removeClass(bodyColors)
+    .removeClass(oldBodyColor)//bodyColors)
     .addClass(bodyColor);
   $("#help-text")
-    .removeClass(helpColors)
+    .removeClass(oldHelpColor)//helpColors)
     .addClass(helpColor);
   $(".game-level")
-    .removeClass(gameLevelColors)
+    .removeClass(oldGameLevelColor)//gameLevelColors)
     .addClass(gameLevelColor);
-  //remove themes from elements that have specific classes/ IDs for on/off, then add new themes so do not need to redraw
+  
+ //current theme is listed as oldTheme for easy removal when changing theme
+  oldTheme= theme;
+  
 }
 
 //add theme with selection
@@ -253,7 +219,6 @@ function toggleAround(clicked) {
 
   if (numClick % size != 0 && numClick + 1 <= size * size) {
     //if not at end of row
-    console.log(numClick + 1);
     var right = document.getElementById("s" + (numClick + 1));
     right.classList.toggle(on);
     right.classList.toggle(off);
@@ -288,7 +253,9 @@ function toggleAround(clicked) {
 
 //next level click
 $("#next").click(function() {
+  
   game++;
+ 
   if (game <= totalGames) {
     drawGame(game);
   } else {
@@ -307,16 +274,15 @@ function nextAfterWin() {
     game++;
     drawGame(game);
   } else {
-    if (confirm(" You won everything! Play a random game?")) {
-      randomGame();
-    } else {
-      document.getElementById("game-name").innerText =
-        "Choose a game to continue.";
-    }
+    alert(" You won everything! Play a random game or choose another game to continue."); 
+    randomGame();
   }
 }
 
 function drawGame(game) {
+  //  console.log("old theme:" +oldTheme +". New theme:" +theme);
+  // console.log("current game" + game);
+  
   $(".square")
     .fadeOut(100)
     .delay(200)
@@ -339,17 +305,20 @@ function drawGame(game) {
       });
     }, 150);
   }
+  
+  
   setTimeout(function() {
     $(".square")
-      .removeClass(ons)
-      .removeClass(offs)
+      .removeClass(on)//was ons
+      .removeClass(off)//was offs
       .addClass(off);
     $(gamesList[game])
       .addClass(on)
-      .removeClass(offs); //adds on to ids, off to others
+      .removeClass(off); //was offs adds on to ids, off to others
   }, 150);
 
-  console.log(game);
+
+  
 }
 
 //toggle lights
@@ -380,12 +349,12 @@ function randomGame() {
 
   setTimeout(function() {
     $(".square")
-      .removeClass(ons)
-      .removeClass(offs)
+      .removeClass(on)//was on
+      .removeClass(off)//was offs
       .addClass(off);
     $(randomArray.join())
       .addClass(on)
-      .removeClass(offs); //adds on to ids, off to others
+      .removeClass(off); // was offs adds on to ids, off to others
     $("#s13").removeClass("tutorial"); //clear tutorial "X"*/
   }, 150);
   game = -1;
@@ -418,6 +387,16 @@ $("#close").click(function() {
   $("#help-text").slideUp();
 });
 
+
+
+//for winning animation
+var squaresArray = [];
+$(".square").each(function() {
+  squaresArray.push("#" + this.id);
+});
+
+var squaresArrayReverse = squaresArray.slice().reverse(); //slice necessary so not to reverse in place
+
 //winning animations
 function Bye(cell) {
   $(cell).fadeOut();
@@ -429,7 +408,6 @@ function cellChange(cell, animateClass) {
   $(cell).toggleClass(animateClass);
 }
 
-var onAnimate = on;
 function showWin() {
   $("#game-name").text("You won game " + game + "!");
 
@@ -475,15 +453,14 @@ function showWin() {
 
 //Missing NICE TO HAVES
 /*
--theme
-make it all jquery or javascript
+?Add animation on click and toggle
+DONE-theme
 Done-ids should start with letters. 
-***make next a function (won) if won->show different confirm message. trigger this function on #Next click, rather than it having its own function. 
-***light up animation on win. 
--Add animation on click and toggle
+DONE ***make next a function (won) if won->show different confirm message. trigger this function on #Next click, rather than it having its own function. 
+DONE- ***light up animation on win. 
 X-Add shadows, make pretty
 DONE- A random game. Push random numbers to array random number less than or equal to 25 long
--Show number of moves done over min number of moves needed. If this, option to turn this off "relaxed"
-- count moves against least number of moves required->points
+? Show number of moves done over min number of moves needed. If this, option to turn this off "relaxed"
+? count moves against least number of moves required->points
 DONE- nicer to find a way to attach least moves and other info to a game - object
 */
