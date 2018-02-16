@@ -83,12 +83,11 @@ function checkWithDates() {
   var currentDate = currentTime.getDate();
   var currentMonth = currentTime.getMonth();
   var currentDay = currentTime.getDay();
-  if (currentMonth == 1) {
-    if (currentDate > 0 && currentDate < 15) {
+  if (currentMonth == 1 && currentDate > 0 && currentDate < 15) {
       $("#theme--valentines").prop("checked", true);
-    }
-  }  else if (currentMonth == 11) {
-    if (currentDate > 14) $("#theme--christmas").prop("checked", true);
+  }
+   else if (currentMonth == 11 && currentDate > 14){
+     $("#theme--christmas").prop("checked", true);
   } 
       else if (currentDay == 2) {
   
