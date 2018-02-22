@@ -4,12 +4,10 @@ $button-off: black;*/
 body,
 html {
   cursor: default;
-  overflow: hidden;
   font-size: 24px;
   font-family: "Share Tech Mono", monospace;
   height: 100%;
   width: 100%;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;

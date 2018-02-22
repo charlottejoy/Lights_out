@@ -13,13 +13,12 @@ $shadow: black 1px 1px 2px;
 body,
 html {
   cursor: default;
-  overflow: hidden;
   font-size: 24px; //1em;
   // background: $background;
   font-family: "Share Tech Mono", monospace;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+ // overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
